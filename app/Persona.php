@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Persona extends Model {
 
     protected $table = "personas";
-    protected $fillable = ['nombre', 'apellido', 'dni', 'fecha_nac', 'telefono', 'telefono_contacto', 'descripcion', 'email', 'localidad_id', 'direccion'];
-
-    public function propietarios() {
-        return $this->hasMany('App\Propietario');
-    }
+    protected $fillable = ['nombre', 'apellido', 'dni', 'fecha_nac', 'telefono', 'telefono_contacto', 'descripcion', 'email', 'localidad_id', 'direccion', 'pais_id', 'foto_perfil'];
 
     public function paciente() {
         return $this->hasOne('App\Paciente');
@@ -27,6 +23,10 @@ class Persona extends Model {
 
     public function localidad() {
         return $this->belongsTo('App\Localidad');
+    }
+
+    public function nacionalidad() {
+        return $this->belongsTo('App\Pais');
     }
 
 }

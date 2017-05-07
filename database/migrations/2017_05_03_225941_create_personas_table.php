@@ -24,6 +24,9 @@ class CreatePersonasTable extends Migration {
             $table->string('email')->nullable();
             $table->integer('localidad_id')->unsigned();
             $table->foreign('localidad_id')->references('id')->on('localidades')->onDelete('cascade');
+            $table->integer('pais_id')->unsigned();
+            $table->foreign('pais_id')->references('id')->on('paises')->onDelete('cascade');            
+            $table->string('foto_perfil')->nullable();
             $table->string('direccion')->nullable();
             $table->string('descripcion', 500)->nullable();
             $table->timestamps();

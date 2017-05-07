@@ -14,6 +14,7 @@ class CreateRecepcionistasTable extends Migration {
     public function up() {
         Schema::create('recepcionistas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('color');
             $table->integer('persona_id')->unsigned();
             $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
             $table->string('descripcion', 500)->nullable();
