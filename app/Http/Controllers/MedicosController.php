@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Persona;
-use App\Enfermero;
+use App\Medico;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Session;
 
-class EnfermeroController extends Controller {
-
+class MedicosController extends Controller
+{
+   
     public function __construct() {
         Carbon::setlocale('es'); // Instancio en Español el manejador de fechas de Laravel
     }
@@ -23,8 +23,8 @@ class EnfermeroController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $enfermeros = Enfermero::all();
-        return view('enfermeros.main')->with('enfermeros', $enfermeros);
+        $medicos = Medico::all();
+        return view('medicos.main')->with('medicos', $medicos);
     }
 
     /**
@@ -42,16 +42,11 @@ class EnfermeroController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        /* datos de persona */
-        $persona = new Persona($request->all());
-        $persona->save();
-        /*         * ************* */
-        $enfermero = new Enfermero();
-        $enfermero->persona_id = $persona->id;
-        $enfermero->save();
-        Session::flash('message', 'Se ha registrado un nuevo paciente.');
-        return redirect()->route('enfermeros.index');
+    public function store(Request $request) {        
+        $medico = new Medico($request->all());
+        $medico->save();      
+        Session::flash('message', 'Se ha registrado un nuevo médico.');
+        return redirect()->route('medicos.index');
     }
 
     /**
@@ -61,13 +56,8 @@ class EnfermeroController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        $enfermero = Enfermero::find($id);
-        $localidades = Localidad::all();
-        $paises = Pais::all();
-        return view('enfermeros.show')
-                        ->with('paciente', $enfermero)
-                        ->with('pais', $paises)
-                        ->with('localidades', $localidades);
+        $medico = Medico::find($id);        
+        return view('medicos.show')->with('medico', $medico);
     }
 
     /**
@@ -88,12 +78,11 @@ class EnfermeroController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        $enfermero = Enfermero::find($id);
-        $persona = Persona::find($enfermero->persona_id);
-        $persona->fill($request->all());
-        $persona->save();
-        Session::flash('message', '¡Se ha actualizado la información del enfermero con éxito!');
-        return redirect()->route('enfermeros.index');
+        $medico = Medico::find($id);      
+        $medico->fill($request->all());
+        $medico->save();
+        Session::flash('message', '¡Se ha actualizado la información del médico con éxito!');
+        return redirect()->route('medicos.index');
     }
 
     /**
@@ -103,10 +92,9 @@ class EnfermeroController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        $enfermero = Enfermero::find($id);
-        $enfermero->delete();
-        Session::flash('message', 'La información asociada al enfermero  ha sido eliminada del sistema');
-        return redirect()->route('enfermeros.index');
+        $medico = Medico::find($id);
+        $medico->delete();
+        Session::flash('message', 'La información asociada al mádico ha sido eliminada del sistema');
+        return redirect()->route('medicos.index');
     }
-
 }

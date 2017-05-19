@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Persona;
-use App\Paciente;
+use App\Recepcionista;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Session;
 
-class PacienteController extends Controller {
+class RecepcionistasController extends Controller {
 
     public function __construct() {
         Carbon::setlocale('es'); // Instancio en Español el manejador de fechas de Laravel
@@ -23,8 +23,8 @@ class PacienteController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $pacientes = Paciente::all();
-        return view('pacientes.main')->with('pacientes', $pacientes);
+        $recepcionistas = Recepcionista::all();
+        return view('recepcionistas.main')->with('recepcionistas', $recepcionistas);
     }
 
     /**
@@ -47,11 +47,11 @@ class PacienteController extends Controller {
         $persona = new Persona($request->all());
         $persona->save();
         /*         * ************* */
-        $paciente = new Paciente();
-        $paciente->persona_id = $persona->id;
-        $paciente->save();
+        $recepcionista = new Recepcionista();
+        $recepcionista->persona_id = $persona->id;
+        $recepcionista->save();
         Session::flash('message', 'Se ha registrado un nuevo paciente.');
-        return redirect()->route('pacientes.index');
+        return redirect()->route('recepcionistas.index');
     }
 
     /**
@@ -61,11 +61,11 @@ class PacienteController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        $paciente = Paciente::find($id);
+        $recepcionista = Recepcionista::find($id);
         $localidades = Localidad::all();
         $paises = Pais::all();
-        return view('pacientes.show')
-                        ->with('paciente', $paciente)
+        return view('recepcionistas.show')
+                        ->with('paciente', $recepcionista)
                         ->with('pais', $paises)
                         ->with('localidades', $localidades);
     }
@@ -88,12 +88,12 @@ class PacienteController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        $paciente = Paciente::find($id);
-        $persona = Persona::find($paciente->persona_id);
+        $recepcionista = Recepcionista::find($id);
+        $persona = Persona::find($recepcionista->persona_id);
         $persona->fill($request->all());
         $persona->save();
-        Session::flash('message', '¡Se ha actualizado la información del paciente con éxito!');
-        return redirect()->route('pacientes.index');
+        Session::flash('message', '¡Se ha actualizado la información del recepcionista con éxito!');
+        return redirect()->route('recepcionistas.index');
     }
 
     /**
@@ -103,10 +103,10 @@ class PacienteController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        $paciente = Paciente::find($id);
-        $paciente->delete();
-        Session::flash('message', 'La información asociada al paciente ha sido eliminada del sistema');
-        return redirect()->route('pacientes.index');
+        $recepcionista = Recepcionista::find($id);
+        $recepcionista->delete();
+        Session::flash('message', 'La información asociada al recepcionista  ha sido eliminada del sistema');
+        return redirect()->route('recepcionistas.index');
     }
 
 }

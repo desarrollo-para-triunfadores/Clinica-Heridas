@@ -3,26 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/hacho/NetBeansProjects/clinica/app/Http/Controllers/UserController.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/resources/views/usuarios/formulario/create.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/resources/views/configuracion/formulario/confirmar.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/routes/web.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/resources/views/usuarios/main.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/resources/views/partes/navTop.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/resources/views/paises/formulario/create.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/resources/views/preventistas/main.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/public/js/pais.js</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/resources/views/configuracion/main.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/app/User.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/app/Http/Controllers/LocalidadesController.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/resources/views/home.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/clinica/database/migrations/2017_05_11_182858_create_obrassociales_table.php</file>
+            <file>file:/home/hacho/NetBeansProjects/clinica/app/Persona.php</file>
             <file>file:/home/hacho/NetBeansProjects/clinica/app/Http/Controllers/PacienteController.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/app/Pais.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/resources/views/provincias/formulario/create.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/app/Http/Controllers/ProvinciasController.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/app/Http/Controllers/PaisesController.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/resources/views/configuracion/formulario/create.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/clinica/resources/views/localidades/formulario/create.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/clinica/routes/web.php</file>
+            <file>file:/home/hacho/NetBeansProjects/clinica/resources/views/partes/sidebar.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/clinica/app/ObraSocial.php</file>
+            <file>file:/home/hacho/NetBeansProjects/clinica/app/Http/Controllers/ObraSocialController.php</file>
+            <file>file:/home/hacho/NetBeansProjects/clinica/database/migrations/2017_05_03_225842_create_paises_table.php</file>
         </group>
     </open-files>
 </project-private>

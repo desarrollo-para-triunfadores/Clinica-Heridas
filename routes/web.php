@@ -19,12 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('configuraciones', 'ConfiguracionController');
-Route::resource('enfermeros', 'EnfermeroController');
+Route::resource('enfermeros', 'EnfermerosController');
 Route::resource('localidades', 'LocalidadesController');
-Route::resource('pacientes', 'PacienteController');
+Route::resource('pacientes', 'PacientesController');
 Route::resource('paises', 'PaisesController');
+Route::resource('medicos', 'MedicosController');
 Route::resource('provincias', 'ProvinciasController');
 Route::resource('recepcionistas', 'RecepcionistaController');
 Route::resource('usuarios', 'UserController');
+Route::resource('obras_sociales', 'ObraSocialController');
 Route::put('usuarios/actpass/{usuarios}', 'UserController@actPass');
 Route::put('usuarios/actconf/{usuarios}', 'UserController@actConf');

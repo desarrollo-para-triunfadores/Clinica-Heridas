@@ -36,9 +36,10 @@
                 </a>
                 <ul class="treeview-menu">
                     <li id="side-ele-usuarios"><a href="{{ route('usuarios.index') }}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-                    <li id="side-ele-celulares"><a href="{{ route('paises.index') }}"><i class="fa fa-circle-o"></i> Paises</a></li>
-                    <li id="side-ele-preventistas"><a href="{{ route('provincias.index') }}"><i class="fa fa-circle-o"></i> Provincias</a></li>
-                    <li id="side-ele-preventistas"><a href="{{ route('localidades.index') }}"><i class="fa fa-circle-o"></i> Localidades</a></li>
+                    <li id="side-ele-paises"><a href="{{ route('paises.index') }}"><i class="fa fa-circle-o"></i> Paises</a></li>
+                    <li id="side-ele-provincias"><a href="{{ route('provincias.index') }}"><i class="fa fa-circle-o"></i> Provincias</a></li>
+                    <li id="side-ele-localidades"><a href="{{ route('localidades.index') }}"><i class="fa fa-circle-o"></i> Localidades</a></li>
+                    <li id="side-ele-obras_sociales"><a href="{{ route('obras_sociales.index') }}"><i class="fa fa-circle-o"></i> Obras Sociales</a></li>
                 </ul>
             </li>  
         </ul>
