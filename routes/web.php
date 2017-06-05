@@ -12,21 +12,32 @@
  */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+Route::get('logout', ['as' => 'logout', 'uses' => '\App\Http\Controllers\Auth\LoginController@logout']);
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('configuraciones', 'ConfiguracionController');
-Route::resource('enfermeros', 'EnfermerosController');
-Route::resource('localidades', 'LocalidadesController');
-Route::resource('pacientes', 'PacientesController');
-Route::resource('paises', 'PaisesController');
-Route::resource('medicos', 'MedicosController');
-Route::resource('provincias', 'ProvinciasController');
-Route::resource('recepcionistas', 'RecepcionistaController');
-Route::resource('usuarios', 'UserController');
-Route::resource('obras_sociales', 'ObraSocialController');
-Route::put('usuarios/actpass/{usuarios}', 'UserController@actPass');
-Route::put('usuarios/actconf/{usuarios}', 'UserController@actConf');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('configuraciones', 'ConfiguracionController');
+    Route::resource('enfermeros', 'EnfermerosController');
+    Route::resource('localidades', 'LocalidadesController');
+    Route::resource('pacientes', 'PacientesController');
+    Route::resource('paises', 'PaisesController');
+    Route::resource('medicos', 'MedicosController');
+    Route::resource('provincias', 'ProvinciasController');
+    Route::resource('usuarios', 'UserController');
+    Route::resource('obras_sociales', 'ObraSocialesController');
+    Route::resource('consultorios', 'ConsultoriosController');
+    Route::resource('feriados', 'FeriadosController');
+    Route::resource('agendas', 'AgendasController');
+    Route::put('usuarios/actpass/{usuarios}', 'UserController@actPass');
+    Route::put('usuarios/actconf/{usuarios}', 'UserController@actConf');
+});
+
+
+
+
+

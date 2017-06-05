@@ -11,9 +11,8 @@ use Storage;
 use Carbon\Carbon;
 Use Session;
 
-class UserController extends Controller
-{
-   
+class UserController extends Controller {
+
     public function __construct() {
         Carbon::setlocale('es'); // Instancio en Español el manejador de fechas de Laravel
     }
@@ -44,9 +43,25 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+
+//        $params = array();
+//        parse_str($request, $params);
+//        
+//        if ($request->ajax()) {
+//            return response()->json([
+//                        'success' => $request->imagen2
+//            ]);
+//        }
+//       
+//        if ($request->ajax()) {
+//            return response()->json($params);
+//        }
+     
+        
+        
         $nombreImagen = 'sin imagen';
-        if ($request->file('imagen')) {
-            $file = $request->file('imagen');
+        if ($request->file('imagen2')) {
+            $file = $request->file('imagen2');
             $nombreImagen = 'usuario_' . time() . '.' . $file->getClientOriginalExtension();
             Storage::disk('usuarios')->put($nombreImagen, \File::get($file));
         }
@@ -57,7 +72,11 @@ class UserController extends Controller
         $user->imagen = $nombreImagen;
         $user->save();
 
- 
+        if ($request->ajax()) {
+            return response()->json([
+                        'success' => $user->id
+            ]);
+        }
 
         Session::flash('message', '¡Se ha registrado a un nuevo usuario con éxito!');
         return redirect()->route('usuarios.index');

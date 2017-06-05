@@ -29,4 +29,7 @@ class User extends Authenticatable {
         'password', 'remember_token',
     ];
 
+    public function feriados(){
+        return $this->hasMany('App\Feriado');
+    }
 }

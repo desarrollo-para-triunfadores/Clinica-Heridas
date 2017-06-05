@@ -25,4 +25,8 @@ class Localidad extends Model {
         return $this->hasOne('App\Configuracion');
     }
 
+    public function consultorios(){
+        return $this->hasMany('App\Consultorios');
+    }
+
 }

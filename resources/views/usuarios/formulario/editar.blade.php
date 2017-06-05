@@ -15,7 +15,7 @@
                     <br>
                     <div class="form-group">
                         <label>Correo electrónico:</label>
-                        <input id="email" name="email" type="email" maxlength="50" class="form-control" aria-describedby="emailHelp" placeholder="campo requerido" required>                            
+                        <input id="update-email" name="email" type="email" maxlength="50" class="form-control" aria-describedby="emailHelp" placeholder="campo requerido" required>                            
                     </div>                        
                     <br>
                     <hr/>  
@@ -24,13 +24,25 @@
                     <br>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Nombre completo:</label>
-                        <input id="name" name="name" type="text" maxlength="50" class="form-control" placeholder="campo requerido" required>
-                    </div>                        
+                        <input id="update-name" name="name" type="text" maxlength="50" class="form-control" placeholder="campo requerido" required>
+                    </div>                                                            
+                     <div class="form-group">
+                       <label>Subir imagen de perfil:</label>
+                        <div id="main-cropper-update" class="hide"></div>
+                        <a class="button actionUpload">                   
+                            <input type="file" id="imagen-update" value="Escoja una imagen" accept="image/*">
+                        </a>                       
+                        <small class="form-text text-muted"><strong>Información:</strong> si no escoge una imagen nueva se utilizará una imagen prestablecida.</small>
+                    </div> 
+                    
                     <div class="form-group">
-                        <label for="exampleInputFile">Imagen de perfil:</label>
-                        <input name="imagen" type="file" class="form-control-file" aria-describedby="fileHelp"> 
-                        <small class="form-text text-muted"><strong>Información:</strong> si no escoge una imagen nueva el campo imagen no se actualizará.</small>
-                    </div>                        
+                        <label for="exampleInputFile">Tomar imagen de perfil desde la cámara:</label>
+                        <video id="video" width="565" height="360" autoplay="true" class="hide"></video>
+                        <canvas id="canvas" name="imagen2" type="file" width="1280" height="720" class="hide"></canvas>  
+                        <div id="contenido_foto"></div>                                                    
+                        <button id="start">iniciar cámara</button>         
+                        <button id="capture" class="hide">capturar imágen</button>
+                    </div>
                     <button id="boton_submit_update" type="submit" class="btn btn-primary hide"></button>
                 </form>  
                 <br>               

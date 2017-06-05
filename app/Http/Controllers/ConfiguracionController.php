@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Configuracion;
+use App\Localidad;
+use Session;
+use Storage;
 use Carbon\Carbon;
-Use Session;
 use App\Http\Requests;
 
 class ConfiguracionController extends Controller {
@@ -19,8 +21,9 @@ class ConfiguracionController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        return view('/configuracion/main');
+    public function index() {      
+        $localidades = Localidad::all();
+        return view('/configuracion/main')->with('localidades', $localidades);
     }
 
     /**
@@ -70,7 +73,24 @@ class ConfiguracionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+        $configuracion = Configuracion::find($id);
+        if ($request->file('logo')) {
+            $file = $request->file('logo');
+            $nombreImagen = 'configuracion_' . time() . '.' . $file->getClientOriginalExtension();
+            if (Storage::disk('otros')->exists($configuracion->logo)) {
+                Storage::disk('otros')->delete($configuracion->logo);   // Borramos la imagen anterior.      
+            }
+            $configuracion->fill($request->all());
+            $configuracion->logo = $nombreImagen;  // Actualizamos el nombre de la nueva imagen.
+            Storage::disk('otros')->put($nombreImagen, \File::get($file)); // Movemos la imagen nueva al directorio /imagenes/personas           
+            $configuracion->save();
+            Session::flash('message', 'Se ha actualizado la información');
+            return redirect()->route('configuraciones.index');
+        }
+        $configuracion->fill($request->all());
+        $configuracion->save();
+        Session::flash('message', 'Se ha actualizado la información');
+        return redirect()->route('configuraciones.index');
     }
 
     /**

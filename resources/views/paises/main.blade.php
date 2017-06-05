@@ -17,9 +17,8 @@ Paises registrados
             <li class="active">Paises</li>
         </ol>
     </section>
-    <section class="content">
+    <section class="content animated fadeIn">
         <div class="row">
-
             <div class="col-md-12">
                 <br>
                 <div class="box box-primary">
@@ -28,8 +27,9 @@ Paises registrados
                         <h3 class="box-title"> Registros</h3>
                     </div>
                     <div class="box-body ">                            
-                        @include('partes.msj_acciones')
-                        <table id="example" class="display" cellspacing="0" width="100%">
+                        @include('partes.msj_acciones')                       
+                        <table id="example" class="row-border responsive hover order-column" cellspacing="0" width="100%">
+
                             <thead>
                                 <tr>                                  
                                     <th class="text-center">Nombre</th>
@@ -51,6 +51,14 @@ Paises registrados
                                 </tr> 
                                 @endforeach
                             </tbody>
+                            <tfoot>
+                                <tr>                                  
+                                    <th class="text-center">Nombre</th>
+                                    <th class="text-center">Cantidad de provincias asociadas</th>
+                                    <th class="text-center">Fecha alta</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div> 
                     <div class="box-footer">

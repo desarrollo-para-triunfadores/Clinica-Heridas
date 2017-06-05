@@ -6,7 +6,7 @@ Zonas registradas
 
 @section('content')
 <div class="content-wrapper">
-    <section class="content-header">
+    <section class="content-header animated fadeIn">
         <h1>
             Configuraciones
             <small>generales</small>
@@ -36,9 +36,7 @@ Zonas registradas
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
-                            <div style="width:auto;height:450px;">
-                                
-                            </div>
+                            @include('configuracion.show')
                         </div>
                         <div class="tab-pane" id="tab_2">
                             <div class="box-body" style="width:auto;height:450px;">                            
@@ -200,13 +198,13 @@ Zonas registradas
                     </div>
                     <div class="box-footer text-black">
                         <div class="row">                           
-                            <div class="col-sm-10">
-                                <small class="form-text text-muted" id="info"><strong>Información:</strong> mueva el marcador y ajuste el nivel del zoom para que esta sea la vista por defecto en todos los mapas del sistema.</small>
+                            <div class="col-sm-10">                            
+                                <small class="form-text text-muted" id="info"><strong>Información:</strong> los apartados <b>nombre del sistema</b> y <b>siglas</b> son los nombres que figurarán en la pantalla de logueo y por encima del menú principal.</small>
                             </div>
                             <div class="col-sm-2">
-                                <div class="text-right">
-                                    <button title="Registrar la configuración del sistema" type="button" id="boton-modal-conf" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-guardar-conf">                                       
-                                        <i class="fa fa-save"></i>&nbsp; guardar configuración
+                                <div class="text-right">                                    
+                                    <button title="Actualizar la información del sistema" type="button" id="boton-modal-conf" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-update">                                       
+                                        <i class="fa fa-pencil"></i>&nbsp; actualizar información
                                     </button>
                                 </div> 
                             </div>
@@ -217,9 +215,16 @@ Zonas registradas
         </div>
     </section>
 </div>
-@include('configuracion.formulario.confirmar')
+@include('configuracion.formulario.editar')
 @endsection
 
 @section('script')
-<script src="{{ asset('js/configuracion.js') }}"></script>
+
+
+
+<script>
+    $("#boton-modal-conf").click(function () {
+        $('#localidad_id').val('2').trigger("change");
+    });
+</script>
 @endsection

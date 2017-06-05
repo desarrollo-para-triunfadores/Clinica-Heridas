@@ -15,7 +15,6 @@ class CreateEnfermerosTable extends Migration {
         Schema::create('enfermeros', function (Blueprint $table) {
             $table->increments('id');
             $table->string('matricula')->nullable();
-            $table->string('color');
             $table->integer('persona_id')->unsigned();
             $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
             $table->string('descripcion', 500)->nullable();

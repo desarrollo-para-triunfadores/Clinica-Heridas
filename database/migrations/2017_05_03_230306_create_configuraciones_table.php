@@ -21,6 +21,8 @@ class CreateConfiguracionesTable extends Migration {
             $table->string('direccion')->nullable();
             $table->string('descripcion', 500)->nullable();
             $table->string('logo');
+            $table->string('apodo')->nullable();
+            $table->string('apodo_abreviado')->nullable();
             $table->integer('localidad_id')->unsigned();
             $table->foreign('localidad_id')->references('id')->on('localidades')->onDelete('cascade');
             $table->timestamps();

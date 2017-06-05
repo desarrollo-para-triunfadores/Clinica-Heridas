@@ -4,7 +4,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Actualizar Provincia</h4>
+                <h4 class="modal-title">Actualizar provincia</h4>
             </div>
             <div class="modal-body">
                 @include('partes.msj_lista_errores')
@@ -31,7 +31,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">volver</button>
-                <button type="button" class="btn  btn-warning" onclick="$('#boton_submit_update').click()">Actualizar Provincia</button>
+                <button type="button" class="btn  btn-warning" onclick="$('#boton_submit_update').click()">actualizar provincia</button>
             </div>
         </div>
     </div>

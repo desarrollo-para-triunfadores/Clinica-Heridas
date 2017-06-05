@@ -4,7 +4,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Eliminar Provincia</h4>
+                <h4 class="modal-title">Eliminar provincia</h4>
             </div>
             <div class="modal-body">
                 <form id="form-borrar" action="" method="POST" accept-charset="UTF-8">
@@ -18,7 +18,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">volver</button>
-                <button type="button" class="btn btn-outline" onclick="$('#boton_submit_borrar').click()">Eliminar Provincia</button>
+                <button type="button" class="btn btn-outline" onclick="$('#boton_submit_borrar').click()">eliminar provincia</button>
             </div>
         </div>
     </div>

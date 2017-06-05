@@ -1,7 +1,7 @@
 <header class=" bg-red-active main-header">
     <a href="index2.html" class="logo">
-        <span class="logo-mini"><b>L</b>C</span>
-        <span class="logo-lg"><b>La</b>Clínica</span>
+        <span class="logo-mini"><b>{{$configuracion->apodo_abreviado}}</b></span>
+        <span class="logo-lg"><b>{{$configuracion->apodo}}</b></span>
     </a>
     <nav class="navbar navbar-static-top">
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -38,7 +38,7 @@
                                 </button>
                             </div>
                             <div class="pull-right">
-                                <a href="{{ url('/logout') }}" class="btn btn-default btn-flat"><i class="fa fa-btn fa-sign-out"></i>Salir</a>
+                                <a href="{{ route('logout') }}" class="btn btn-default btn-flat"><i class="fa fa-btn fa-sign-out"></i>Salir</a>
                             </div>
                         </li>
                     </ul>

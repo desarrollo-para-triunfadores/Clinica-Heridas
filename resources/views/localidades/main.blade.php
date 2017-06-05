@@ -17,14 +17,13 @@ Localidades registradas
             <li class="active">Localidades</li>
         </ol>
     </section>
-    <section class="content">
+    <section class="content animated fadeIn">
         <div class="row">
-
             <div class="col-md-12">
                 <br>
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                           <i class="fa fa-list" aria-hidden="true"></i>
                         <h3 class="box-title"> Registros</h3>
                     </div>
                     <div class="box-body ">                            
@@ -57,7 +56,7 @@ Localidades registradas
                     </div> 
                     <div class="box-footer">
                         <button title="Registrar un país" type="button" id="boton-modal-crear" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-crear">
-                            <i class="fa fa-plus-circle"></i> &nbsp;Registrar Localidad
+                            <i class="fa fa-plus-circle"></i> &nbsp;registrar localidad
                         </button>
                     </div>
                 </div>

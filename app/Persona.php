@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Persona extends Model {
 
     protected $table = "personas";
-    protected $fillable = ['nombre', 'apellido', 'dni', 'fecha_nac', 'telefono', 'telefono_contacto', 'descripcion', 'email', 'localidad_id', 'direccion', 'pais_id', 'foto_perfil'];
+    protected $fillable = ['nombre', 'apellido', 'dni', 'sexo', 'fecha_nac', 'telefono', 'telefono_contacto', 'descripcion', 'email', 'localidad_id', 'direccion', 'pais_id', 'foto_perfil'];
 
     public function paciente() {
         return $this->hasOne('App\Paciente');
@@ -17,8 +17,8 @@ class Persona extends Model {
         return $this->hasOne('App\Enfermero');
     }
 
-    public function recepcionista() {
-        return $this->hasOne('App\Recepcionista');
+    public function pais() {
+        return $this->belongsTo('App\Pais');
     }
 
     public function localidad() {

@@ -16,7 +16,7 @@ Usuarios registrados
             <li class="active">Usuarios</li>
         </ol>
     </section>
-    <section class="content">
+    <section class="content animated fadeIn">
         <div class="row">
             <div class="col-xs-12">
                 <div class="col-md-9">
@@ -27,7 +27,7 @@ Usuarios registrados
                                     <div class="form-group">
                                         <i class="fa fa-search" aria-hidden="true"></i>
                                         <label>&nbsp;Filtrar usuarios</label>
-                                        <select  style="width: 100%"id="select_usuario" class="select2 form-control form-control-sm" multiple="multiple">
+                                        <select  style="width: 100%"id="select_filtro" class="select2 form-control form-control-sm" multiple="multiple">
                                             @foreach($usuarios as $usuario)
                                             <option value="{{$usuario->id}}">{{$usuario->name}}</option>                                                    
                                             @endforeach
@@ -61,7 +61,7 @@ Usuarios registrados
                     @include('partes.msj_acciones')                    
                 </div>
                 @foreach($usuarios as $usuario)
-                <div class="col-md-4 li_user" id="{{$usuario->id}}">           
+                <div class="col-md-4 li_item animated pulse" id="{{$usuario->id}}">           
                     <div class="box box-widget widget-user">
                         <div class="widget-user-header bg-primary">
                             <h3 class="widget-user-username"><b>{{$usuario->name}}</b></h3>
@@ -95,6 +95,27 @@ Usuarios registrados
                 @endforeach
             </div>
         </div>
+
+        
+        
+           
+        
+<!--        <div class="row">
+            <div class="col-sm-8 "> 
+                <div id="caca"> 
+                
+            </div>
+            </div>
+            <div class="col-sm-4">
+                <div id="main-cropper"></div>
+                <a class="button actionUpload">                   
+                    <input type="file" id="upload" value="Choose Image" accept="image/*">
+                </a>                   
+            </div>
+        </div> -->
+
+
+
     </section>
 </div>
 
@@ -106,4 +127,5 @@ Usuarios registrados
 @endsection
 @section('script') 
 <script src="{{ asset('js/usuarios.js') }}"></script>
+<script src="{{ asset('js/camara.js') }}"></script>
 @endsection

@@ -48,7 +48,7 @@ $.widget.bridge('uibutton', $.ui.button);
 <!--<script src="{{ asset('plantilla/AdminLTE/dist/js/pages/dashboard.js') }}"></script>-->
 
 <!-- AdminLTE for demo purposes -->
-<script src="{{ asset('plantilla/AdminLTE/dist/js/demo.js') }}"></script>
+<!--<script src="{{ asset('plantilla/AdminLTE/dist/js/demo.js') }}"></script>-->
 
 <!-- bootstrap color picker -->
 <script src="{{ asset('plantilla/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.min.js') }}"></script>
@@ -57,14 +57,19 @@ $.widget.bridge('uibutton', $.ui.button);
 <script src="{{ asset('plantilla/AdminLTE/plugins/select2/select2.full.min.js') }}"></script>
 
 <!-- DataTables -->
-<script src="{{ asset('plantilla/AdminLTE/plugins/DataTables/media/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('plantilla/AdminLTE/plugins/datatables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('plantilla/AdminLTE/plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
+
+
+<!-- Croppie -->
+<script src="{{ asset('plantilla/AdminLTE/plugins/croppie/js/deploy.js') }}"></script>
+<script src="{{ asset('plantilla/AdminLTE/plugins/croppie/js/croppie.min.js') }}"></script>
 
 <script>
 
 
 $(".select2").select2();
 
-$('#example').DataTable();
 
 //Colorpicker
 $(".my-colorpicker1").colorpicker({
@@ -95,8 +100,5 @@ $(".my-colorpicker2").colorpicker({
     }
 });
 </script>
-
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANzTkkt93m5CSxz1H5fZy18uN_sEERiu4&callback=initMap"></script>
 
 
