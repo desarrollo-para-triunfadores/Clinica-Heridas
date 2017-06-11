@@ -31,7 +31,8 @@
 <link rel="stylesheet" href="">
 <!-- Daterange picker -->
 <link type="text/css" rel="stylesheet" href="{{ asset('plantilla/AdminLTE/plugins/daterangepicker/daterangepicker.css') }}  ">
-<link rel="stylesheet" href="">
+<!-- Bootstrap time Picker -->
+<link rel="stylesheet" type="text/css" href="{{ asset('plantilla/AdminLTE/plugins/timepicker/bootstrap-timepicker.min.css') }}">
 <!-- bootstrap wysihtml5 - text editor -->
 <link type="text/css" rel="stylesheet" href="{{ asset('plantilla/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}  ">
 <!-- Bootstrap Color Picker -->
@@ -56,4 +57,5 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 

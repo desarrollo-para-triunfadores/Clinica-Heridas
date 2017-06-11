@@ -31,6 +31,7 @@ $.widget.bridge('uibutton', $.ui.button);
 
 <!-- datepicker -->
 <script src="{{ asset('plantilla/AdminLTE/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('plantilla/AdminLTE/plugins/datepicker/locales/bootstrap-datepicker.es.js') }}"></script>
 
 <!-- Bootstrap WYSIHTML5 -->
 <script src="{{ asset('plantilla/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
@@ -67,8 +68,44 @@ $.widget.bridge('uibutton', $.ui.button);
 
 <script>
 
+//esta variable se usa para traducir todas las tablas del sistema. Por alguna razón hay incompatibilidad entre el cambio del lenguaje y los filtros individaules en las columnas. Por eso se recurre a esto.
+var tabla_traducida = {
+    "sProcessing": "Procesando...",
+    "sLengthMenu": "Mostrar _MENU_ registros",
+    "sZeroRecords": "No se encontraron resultados",
+    "sEmptyTable": "Ningún dato disponible en esta tabla",
+    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix": "",
+    "sSearch": "Buscar:",
+    "sUrl": "",
+    "sInfoThousands": ",",
+    "sLoadingRecords": "Cargando...",
+    "oPaginate": {
+        "sFirst": "Primero",
+        "sLast": "Último",
+        "sNext": "Siguiente",
+        "sPrevious": "Anterior"
+    },
+    "oAria": {
+        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    }
+};
 
 $(".select2").select2();
+
+////Date picker
+//$('#datepicker').datepicker({
+//    autoclose: true,
+//       language: "es"
+//});
+
+//Timepicker
+$(".timepicker").timepicker({
+    showInputs: false
+});
 
 
 //Colorpicker

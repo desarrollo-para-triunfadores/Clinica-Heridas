@@ -42,26 +42,10 @@ class UserController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-
-//        $params = array();
-//        parse_str($request, $params);
-//        
-//        if ($request->ajax()) {
-//            return response()->json([
-//                        'success' => $request->imagen2
-//            ]);
-//        }
-//       
-//        if ($request->ajax()) {
-//            return response()->json($params);
-//        }
-     
-        
-        
+    public function store(Request $request) {           
         $nombreImagen = 'sin imagen';
-        if ($request->file('imagen2')) {
-            $file = $request->file('imagen2');
+        if ($request->file('imagen')) {
+            $file = $request->file('imagen');
             $nombreImagen = 'usuario_' . time() . '.' . $file->getClientOriginalExtension();
             Storage::disk('usuarios')->put($nombreImagen, \File::get($file));
         }
@@ -77,7 +61,6 @@ class UserController extends Controller {
                         'success' => $user->id
             ]);
         }
-
         Session::flash('message', '¡Se ha registrado a un nuevo usuario con éxito!');
         return redirect()->route('usuarios.index');
     }

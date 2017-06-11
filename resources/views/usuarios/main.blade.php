@@ -94,29 +94,12 @@ Usuarios registrados
                 </div>
                 @endforeach
             </div>
-        </div>
-
-        
-        
-           
-        
-<!--        <div class="row">
-            <div class="col-sm-8 "> 
-                <div id="caca"> 
-                
-            </div>
-            </div>
-            <div class="col-sm-4">
-                <div id="main-cropper"></div>
-                <a class="button actionUpload">                   
-                    <input type="file" id="upload" value="Choose Image" accept="image/*">
-                </a>                   
-            </div>
-        </div> -->
-
-
-
+        </div>                             
     </section>
+    
+ 
+    
+    
 </div>
 
 @include('usuarios.formulario.create')
@@ -126,6 +109,12 @@ Usuarios registrados
 
 @endsection
 @section('script') 
+
+<script>
+    var imagen_user = 'imagenes/usuarios/{{ Auth::user()->imagen}}';
+  //  'imagenes/usuarios/' . '{{ Auth::user()->imagen}}'
+</script>
+
 <script src="{{ asset('js/usuarios.js') }}"></script>
 <script src="{{ asset('js/camara.js') }}"></script>
 @endsection

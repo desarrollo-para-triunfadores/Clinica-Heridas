@@ -235,4 +235,5 @@ Enfermeros registrados
 @endsection
 @section('script') 
 <script src="{{ asset('js/enfermero.js') }}"></script>
+<script src="{{ asset('js/camara.js') }}"></script>
 @endsection

@@ -52,8 +52,8 @@ class EnfermerosController extends Controller {
      */
     public function store(Request $request) {
         $nombreImagen = 'sin imagen';
-        if ($request->file('foto_perfil')) {
-            $file = $request->file('foto_perfil');
+        if ($request->file('imagen')) {
+            $file = $request->file('imagen');
             $nombreImagen = 'persona_' . time() . '.' . $file->getClientOriginalExtension();
             Storage::disk('personas')->put($nombreImagen, \File::get($file));
         }
@@ -106,8 +106,8 @@ class EnfermerosController extends Controller {
         $enfermero = Enfermero::find($id);
         $persona = Persona::find($enfermero->persona_id);
 
-        if ($request->file('foto_perfil')) {
-            $file = $request->file('foto_perfil');
+        if ($request->file('imagen')) {
+            $file = $request->file('imagen');
             $nombreImagen = 'persona_' . time() . '.' . $file->getClientOriginalExtension();
             if (Storage::disk('personas')->exists($persona->foto_perfil)) {
                 Storage::disk('personas')->delete($persona->foto_perfil);   // Borramos la imagen anterior.      

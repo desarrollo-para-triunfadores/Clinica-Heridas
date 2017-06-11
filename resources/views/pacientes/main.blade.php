@@ -233,4 +233,5 @@ Pacientes registradas
 @endsection
 @section('script') 
 <script src="{{ asset('js/paciente.js') }}"></script>
+<script src="{{ asset('js/camara.js') }}"></script>
 @endsection

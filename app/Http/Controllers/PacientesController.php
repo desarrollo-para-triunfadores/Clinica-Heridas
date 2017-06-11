@@ -13,7 +13,6 @@ use App\Localidad;
 use Carbon\Carbon;
 use Storage;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use Session;
 
 class PacientesController extends Controller {
@@ -59,8 +58,8 @@ class PacientesController extends Controller {
     public function store(Request $request) {
 
         $nombreImagen = 'sin imagen';
-        if ($request->file('foto_perfil')) {
-            $file = $request->file('foto_perfil');
+        if ($request->file('imagen')) {
+            $file = $request->file('imagen');
             $nombreImagen = 'persona_' . time() . '.' . $file->getClientOriginalExtension();
             Storage::disk('personas')->put($nombreImagen, \File::get($file));
         }
@@ -117,8 +116,8 @@ class PacientesController extends Controller {
         $paciente = Paciente::find($id);
         $persona = Persona::find($paciente->persona_id);
 
-        if ($request->file('foto_perfil')) {
-            $file = $request->file('foto_perfil');
+        if ($request->file('imagen')) {
+            $file = $request->file('imagen');
             $nombreImagen = 'persona_' . time() . '.' . $file->getClientOriginalExtension();
             if (Storage::disk('personas')->exists($persona->foto_perfil)) {
                 Storage::disk('personas')->delete($persona->foto_perfil);   // Borramos la imagen anterior.      
