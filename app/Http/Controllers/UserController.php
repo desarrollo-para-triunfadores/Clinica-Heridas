@@ -42,7 +42,7 @@ class UserController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {           
+    public function store(Request $request) {
         $nombreImagen = 'sin imagen';
         if ($request->file('imagen')) {
             $file = $request->file('imagen');
@@ -55,13 +55,10 @@ class UserController extends Controller {
         $user->password = bcrypt($request->password);
         $user->imagen = $nombreImagen;
         $user->save();
-
-        if ($request->ajax()) {
-            return response()->json([
-                        'success' => $user->id
-            ]);
-        }
         Session::flash('message', '¡Se ha registrado a un nuevo usuario con éxito!');
+        if ($request->ajax()) {
+            return response()->json('ok');
+        }
         return redirect()->route('usuarios.index');
     }
 

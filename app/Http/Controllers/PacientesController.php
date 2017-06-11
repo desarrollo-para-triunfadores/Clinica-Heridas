@@ -13,7 +13,9 @@ use App\Localidad;
 use Carbon\Carbon;
 use Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Session;
+
 
 class PacientesController extends Controller {
 
@@ -115,7 +117,6 @@ class PacientesController extends Controller {
     public function update(Request $request, $id) {
         $paciente = Paciente::find($id);
         $persona = Persona::find($paciente->persona_id);
-
         if ($request->file('imagen')) {
             $file = $request->file('imagen');
             $nombreImagen = 'persona_' . time() . '.' . $file->getClientOriginalExtension();
@@ -135,7 +136,6 @@ class PacientesController extends Controller {
         $persona->save();
         $paciente->fill($request->all());
         $paciente->save();
-
         Session::flash('message', '¡Se ha actualizado la información del paciente con éxito!');
         return redirect()->route('pacientes.index');
     }

@@ -101,8 +101,9 @@ $('#example tbody').on('mouseenter', 'td', function () {
 
 
 //Date picker
-$('#datepicker').datepicker({
+$('.datepicker').datepicker({
     autoclose: true,
+    orientation: "bottom auto",
     language: "es"
 });
 
@@ -199,7 +200,7 @@ $('.actionUpload-update input').on('change', function () {
 
 function mandar(tipo_form) { //tipo_form puede ser create o update
 
-var redireccion = "/pacientes";
+    var redireccion = "/pacientes";
 
 
 //// Este método sirve para ver el contenido del formdata
@@ -240,7 +241,7 @@ var redireccion = "/pacientes";
                         processData: false,
                         contentType: false,
                         success: function (data) {
-                          window.location.href = redireccion;
+                            window.location.href = redireccion;
                         },
                         error: function () {
                             console.log('Upload error');
@@ -258,7 +259,7 @@ var redireccion = "/pacientes";
                     processData: false,
                     contentType: false,
                     success: function (data) {
-                       window.location.href = redireccion;
+                        window.location.href = redireccion;
                     },
                     error: function () {
                         console.log('Upload error');
@@ -292,7 +293,7 @@ var redireccion = "/pacientes";
                         processData: false,
                         contentType: false,
                         success: function (data) {
-                           window.location.href = redireccion;
+                            window.location.href = redireccion;
                         },
                         error: function () {
                             console.log('Upload error');
@@ -310,7 +311,7 @@ var redireccion = "/pacientes";
                     processData: false,
                     contentType: false,
                     success: function (data) {
-                      window.location.href = redireccion;
+                        window.location.href = redireccion;
                     },
                     error: function () {
                         console.log('Upload error');

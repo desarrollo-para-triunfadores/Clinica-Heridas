@@ -170,7 +170,7 @@ Pacientes registradas
                                     <i class="fa fa-user-plus" aria-hidden="true"></i>
                                     <label>&nbsp;Nuevo</label>
                                     <button title="Registrar un enfermero" type="button" id="boton-modal-crear" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal-crear">
-                                        <i class="fa fa-plus-circle"></i> &nbsp;registrar enfermero
+                                        <i class="fa fa-plus-circle"></i> &nbsp;registrar paciente
                                     </button>
                                     <small class="form-text text-muted">&nbsp;</small>
                                 </div>
@@ -214,7 +214,7 @@ Pacientes registradas
                         <div style="text-align: center;">
                             <a onclick="completar_campos({{$paciente}})" title="Editar este registro" class="btn  btn-warning btn-sm"><i class="fa fa-pencil"></i> actulizar</a>
                             <a onclick="abrir_modal_borrar({{$paciente->id}})" title="Eliminar este registro" class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i> eliminar</a>
-                            <a href="{{ route('enfermeros.show', $paciente->id) }}" title="Visualizar el detalle de este registro" class="btn btn-sm btn-info"><i class="fa fa-list"> visualizar</i></a>
+                            <a href="{{ route('pacientes.show', $paciente->id) }}" title="Visualizar el detalle de este registro" class="btn btn-sm btn-info"><i class="fa fa-list"> visualizar</i></a>
                         </div>
 
                     </div>

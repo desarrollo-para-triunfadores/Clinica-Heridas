@@ -45,7 +45,7 @@ Enfermeros registradas
                             </div>                                                                     
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Fecha de cumpleaños</label>
+                                    <label>Fecha de nacimiento:</label>
                                     <span class="form-control">{{$enfermero->persona->fecha_nac}}</span>                           
                                 </div>
                             </div> 
@@ -118,6 +118,9 @@ Enfermeros registradas
                         <div class="row">
                             <div class="col-md-12">
                                 <a href="{{ route('enfermeros.index') }}" title="volver a la pantalla anterior" class="btn btn-default btn-sm"><i class="fa fa-arrow-left"></i> volver</a>
+                                 <button title="Registrar un enfermero" type="button" id="boton-modal-crear" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-crear">
+                                        <i class="fa fa-plus-circle"></i> &nbsp;registrar enfermero
+                                    </button>
                                 <div class="pull-right">                                    
                                     <a onclick="completar_campos({{$enfermero}})" title="Editar este registro" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> actualizar registro</a>
                                     <a onclick="abrir_modal_borrar({{$enfermero->id}})" title="Eliminar este registro" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> eliminar registro</a>                                       
@@ -130,11 +133,12 @@ Enfermeros registradas
         </div>
     </section>
 </div>
-
+@include('enfermeros.formulario.create')
 @include('enfermeros.formulario.editar')
 @include('enfermeros.formulario.confirmar')
 
 @endsection
 @section('script') 
 <script src="{{ asset('js/enfermero.js') }}"></script>
+<script src="{{ asset('js/camara.js') }}"></script>
 @endsection

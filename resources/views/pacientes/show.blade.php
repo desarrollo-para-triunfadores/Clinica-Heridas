@@ -45,7 +45,7 @@ Pacientes registradas
                             </div>                                                                     
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Fecha de cumpleaños</label>
+                                    <label>Fecha de nacimiento:</label>
                                     <span class="form-control">{{$paciente->persona->fecha_nac}}</span>                           
                                 </div>
                             </div> 
@@ -125,6 +125,9 @@ Pacientes registradas
                         <div class="row">
                             <div class="col-md-12">
                                 <a href="{{ route('pacientes.index') }}" title="volver a la pantalla anterior" class="btn btn-default btn-sm"><i class="fa fa-arrow-left"></i> volver</a>
+                                <button title="Registrar un enfermero" type="button" id="boton-modal-crear" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-crear">
+                                    <i class="fa fa-plus-circle"></i> &nbsp;registrar paciente
+                                </button>
                                 <div class="pull-right">                                    
                                     <a onclick="completar_campos({{$paciente}})" title="Editar este registro" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> actualizar registro</a>
                                     <a onclick="abrir_modal_borrar({{$paciente->id}})" title="Eliminar este registro" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> eliminar registro</a>                                       
@@ -137,11 +140,12 @@ Pacientes registradas
         </div>
     </section>
 </div>
-
+@include('pacientes.formulario.create')
 @include('pacientes.formulario.editar')
 @include('pacientes.formulario.confirmar')
 
 @endsection
 @section('script') 
 <script src="{{ asset('js/paciente.js') }}"></script>
+<script src="{{ asset('js/camara.js') }}"></script>
 @endsection
