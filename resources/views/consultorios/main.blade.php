@@ -31,15 +31,13 @@ Consultorios registrados
                             <thead>
                                 <tr>                                  
                                     <th class="text-center">Nombre</th>
-                                    <th class="text-center">Localidad</th>
                                     <th class="text-center">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($consultorios as $consultorio)
                                 <tr>
-                                    <td class="text-center text-bold">{{$consultorio->nombre}}</td>
-                                    <td class="text-center text-bold">{{$consultorio->localidad->nombre}} ({{$consultorio->localidad->provincia->nombre}})</td>
+                                    <td class="text-center text-bold">{{$consultorio->nombre}}</td>                     
                                     <td class="text-center">
                                         <a onclick="completar_campos({{$consultorio}})" title="Editar este registro" class="btn btn-social-icon btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
                                         <a onclick="abrir_modal_borrar({{$consultorio->id}})" title="Eliminar este registro" class="btn btn-social-icon btn-sm btn-danger"><i class="fa fa-trash"></i></a>

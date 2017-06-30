@@ -21,4 +21,8 @@ class Paciente extends Model {
         return $this->belongsTo('App\Persona');
     }
 
+    public function turnos() {
+        return $this->hasMany('App\Turnos');
+    }
+    
 }

@@ -15,9 +15,7 @@ class CreateFeriadosTable extends Migration {
         Schema::create('feriados', function (Blueprint $table) {
             $table->increments('id');
             $table->string('fecha');
-            $table->string('motivo', 500)->nullable();
-            $table->integer('usuario_id')->unsigned();
-            $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('motivo', 500);
             $table->timestamps();
         });
     }

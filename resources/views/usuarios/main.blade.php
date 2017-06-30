@@ -5,6 +5,7 @@ Usuarios registrados
 @endsection
 
 @section('content')
+    @include('roles.formulario.create')
 <div class="content-wrapper" style="min-height: 916px;">
     <section class="content-header">
         <h1>
@@ -48,7 +49,10 @@ Usuarios registrados
                                         <i class="fa fa-user-plus" aria-hidden="true"></i>
                                         <label>&nbsp;Nuevo</label>
                                         <button title="Registrar un usuario" type="button" id="boton-modal-crear" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal-crear">
-                                            <i class="fa fa-plus-circle"></i> &nbsp;registrar usuario
+                                            <i class="fa fa-plus-circle"></i> &nbsp;Registrar Usuario
+                                        </button>
+                                        <button title="Registrar un nuevo rol de usuario (permiso de acceso dentro de la clinica)" type="button" id="boton-modal-crear-rol" class="btn btn-yahoo btn-block" data-toggle="modal" data-target="#modal-crear-rol">
+                                            <i class="fa fa-plus-circle"></i> &nbsp;Registrar Rol
                                         </button>
                                         <small class="form-text text-muted">&nbsp;</small>
                                     </div>

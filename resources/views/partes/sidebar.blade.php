@@ -4,7 +4,7 @@
             <li class="header" align="center">menú principal</li>
             <li id="side-pacientes" class="treeview">
                 <a href="#">
-                    <i class="fa fa-map-o" aria-hidden="true"></i> <span>Pacientes</span>
+                    <i class="fa fa-user-o" aria-hidden="true"></i> <span>Pacientes</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -15,7 +15,7 @@
             </li>
             <li id="side-profesionales" class="treeview">
                 <a href="#">
-                    <i class="fa fa-road" aria-hidden="true"></i>
+                    <i class="fa fa-stethoscope" aria-hidden="true"></i>
                     <span>Profesionales</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -28,7 +28,7 @@
             </li>   
             <li id="side-general-li" class="treeview">
                 <a href="#">
-                    <i class="fa fa-suitcase" aria-hidden="true"></i>
+                    <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
                     <span>Parámetros generales</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -85,8 +85,29 @@
                 </a>
             </li>
 
+            <li id="side-consultorios" class="">
+                <a href="{{ route('turnos.index') }}">
+                    <i class="fa fa-calendar"></i> <span>Obtener turno</span>
+                    <span class="pull-right-container">
+                    </span>
+                </a>
+            </li>
 
+     <li id="side-consultorios" class="">
+                <a href="{{ route('turnos_dia') }}">
+                    <i class="fa fa-calendar"></i> <span>Agenda de turnos</span>
+                    <span class="pull-right-container">
+                    </span>
+                </a>
+            </li>
 
+                 <li id="side-consultorios" class="">
+                <a href="{{ route('turnera') }}">
+                    <i class="fa fa-calendar"></i> <span>Turnera</span>
+                    <span class="pull-right-container">
+                    </span>
+                </a>
+            </li>
 
 
 

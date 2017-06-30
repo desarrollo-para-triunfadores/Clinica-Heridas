@@ -24,6 +24,14 @@
                         <label>Confirmar password:</label>
                         <input name="password_confirmation" type="password" maxlength="50" class="form-control" placeholder="campo requerido" required>
                     </div>
+                    <div class="form-group">
+                        <label>Rol de Usuario:</label>
+                        <select style="width: 100%" name="rol_id"  placeholder="campo requerido"  title="El rol que escojas dara permiso al usuario a acceder a las pantallas indicadas en la seccion 'Roles'" class="select2 form-control">
+                            @foreach($roles as $rol)
+                                <option value="{{$rol->id}}">{{$rol->nombre}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <br>
                     <hr/>  
                     <br>                                         

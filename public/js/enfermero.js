@@ -110,6 +110,7 @@ $('#example tbody').on('mouseenter', 'td', function () {
 $('.datepicker').datepicker({
     autoclose: true,
     orientation: "bottom auto",
+    format: "dd/mm/yyyy",
     language: "es"
 });
 

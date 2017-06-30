@@ -20,6 +20,25 @@ Route::get('logout', ['as' => 'logout', 'uses' => '\App\Http\Controllers\Auth\Lo
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
+
+
+
+
+    Route::get('/reloj', function () {
+        return view('turnera.partes.reloj');
+    });
+
+    Route::get('/contenido_turnera', function () {
+        return view('turnera.partes.tablas');
+    });
+
+
+    Route::get('/turnos_dia', 'TurnosController@index2')->name('turnos_dia');
+
+    Route::get('/buscar_turnos', 'TurnosController@buscar_turnos')->name('buscar_turnos');
+
+    Route::get('/turnera', 'TurnosController@turnera')->name('turnera');
+
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('configuraciones', 'ConfiguracionController');
     Route::resource('enfermeros', 'EnfermerosController');
@@ -33,8 +52,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('consultorios', 'ConsultoriosController');
     Route::resource('feriados', 'FeriadosController');
     Route::resource('agendas', 'AgendasController');
+    Route::resource('turnos', 'TurnosController');
     Route::put('usuarios/actpass/{usuarios}', 'UserController@actPass');
     Route::put('usuarios/actconf/{usuarios}', 'UserController@actConf');
+    Route::resource('roles', 'RolesController');
 });
 
 
