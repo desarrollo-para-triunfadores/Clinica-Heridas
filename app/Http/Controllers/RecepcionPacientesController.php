@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\FactorRiesgo;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Persona;
@@ -10,6 +11,7 @@ use App\Pais;
 use App\ObraSocial;
 use App\Medico;
 use App\Localidad;
+use App\Turno;
 use Carbon\Carbon;
 use Storage;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +19,7 @@ use Illuminate\Http\Request;
 use Session;
 
 
-class PacientesController extends Controller {
+class RecepcionPacientesController extends Controller {
 
     public function __construct() {
         Carbon::setlocale('es'); // Instancio en Español el manejador de fechas de Laravel
@@ -30,16 +32,20 @@ class PacientesController extends Controller {
      */
     public function index() {
         $pacientes = Paciente::all();
+        $factores_riesgo = FactorRiesgo::all();
+        $turnos = Turno::all();
         $paises = Pais::all();
         $obras = ObraSocial::all();
         $medicos = Medico::all();
         $localidades = Localidad::all();
-        return view('pacientes.main')
-                        ->with('pacientes', $pacientes)
-                        ->with('obras', $obras)
-                        ->with('medicos', $medicos)
-                        ->with('paises', $paises)
-                        ->with('localidades', $localidades);
+        return view('pacientes.formulario.recepcion')
+            ->with('pacientes', $pacientes)
+            ->with('factores_riesgo',$factores_riesgo)
+            ->with('obras', $obras)
+            ->with('medicos', $medicos)
+            ->with('turnos', $turnos)
+            ->with('paises', $paises)
+            ->with('localidades', $localidades);
     }
 
     public function create() {

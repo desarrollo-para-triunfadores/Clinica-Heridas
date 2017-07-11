@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('enfermeros', 'EnfermerosController');
     Route::resource('localidades', 'LocalidadesController');
     Route::resource('pacientes', 'PacientesController');
+    Route::resource('recepcionpacientes','RecepcionPacientesController');
     Route::resource('paises', 'PaisesController');
     Route::resource('medicos', 'MedicosController');
     Route::resource('provincias', 'ProvinciasController');

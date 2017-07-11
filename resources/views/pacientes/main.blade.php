@@ -108,8 +108,14 @@ Pacientes registradas
                                     <button onclick="cambiar_vista(true)" title="Cambiar a vista resumida" type="button" class="btn btn-default">
                                         <i class="fa fa-list-ul"></i> &nbsp;cambiar vista
                                     </button>
+                                    <button title="Sacar turno para atencion" href="{{ route('turnos.index') }}" type="button" id="boton-modal-crear" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">
+                                        <i class="fa fa-plus-circle"></i> &nbsp;Solicitar Turno
+                                    </button>
+                                    <button title="Registrar llegada para ser atendido por enfermero" href="{{ route('turnos.index') }}" type="button" id="boton-modal-crear" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">
+                                        <i class="fa fa-plus-circle"></i> &nbsp;Registrar Recepción
+                                    </button>
                                     <button title="Registrar un paciente" type="button" id="boton-modal-crear" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">
-                                        <i class="fa fa-plus-circle"></i> &nbsp;registrar paciente
+                                        <i class="fa fa-plus-circle"></i> &nbsp;Registrar Paciente
                                     </button>
                                 </div>
                             </div>
@@ -169,6 +175,7 @@ Pacientes registradas
                                 <div class="form-group">
                                     <i class="fa fa-user-plus" aria-hidden="true"></i>
                                     <label>&nbsp;Nuevo</label>
+                                    <a data-toggle="tooltip" data-placement="bottom" href="{{ route('recepcionpacientes.index') }}" title="Registrar una nueva propiedad de la inmobiliaria"  class="btn btn-blue"> <span class="fa fa-plus-circle" aria-hidden="true"></span> Registrar Llegada de paciente</a>
                                     <button title="Registrar un enfermero" type="button" id="boton-modal-crear" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal-crear">
                                         <i class="fa fa-plus-circle"></i> &nbsp;registrar paciente
                                     </button>

@@ -66,8 +66,9 @@ $.widget.bridge('uibutton', $.ui.button);
 <script src="{{ asset('plantilla/AdminLTE/plugins/croppie/js/deploy.js') }}"></script>
 <script src="{{ asset('plantilla/AdminLTE/plugins/croppie/js/croppie.min.js') }}"></script>
 
+<!--jquery-steps-master-->
+<script src="{{ asset('plantilla/AdminLTE/plugins/jquery-steps-master/build/jquery.steps.js') }}"></script>
 <script>
-
 //esta variable se usa para traducir todas las tablas del sistema. Por alguna razón hay incompatibilidad entre el cambio del lenguaje y los filtros individaules en las columnas. Por eso se recurre a esto.
 var tabla_traducida = {
     "sProcessing": "Procesando...",

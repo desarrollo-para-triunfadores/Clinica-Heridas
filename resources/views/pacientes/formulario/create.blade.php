@@ -160,7 +160,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">volver</button>
-                <button type="button" class="btn btn-primary" onclick="mandar('create');">registrar paciente</button>
+                <button type="button" class="btn btn-primary" onclick="mandar('create');">Registrar Paciente</button>
             </div>
         </div>          
     </div>
