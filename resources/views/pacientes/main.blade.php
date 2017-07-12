@@ -175,9 +175,12 @@ Pacientes registradas
                                 <div class="form-group">
                                     <i class="fa fa-user-plus" aria-hidden="true"></i>
                                     <label>&nbsp;Nuevo</label>
-                                    <a data-toggle="tooltip" data-placement="bottom" href="{{ route('recepcionpacientes.index') }}" title="Registrar una nueva propiedad de la inmobiliaria"  class="btn btn-blue"> <span class="fa fa-plus-circle" aria-hidden="true"></span> Registrar Llegada de paciente</a>
+
                                     <button title="Registrar un enfermero" type="button" id="boton-modal-crear" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal-crear">
-                                        <i class="fa fa-plus-circle"></i> &nbsp;registrar paciente
+                                        <i class="fa fa-plus-circle"></i> &nbsp;Registrar Paciente
+                                    </button>
+                                    <button title="Registrar un nuevo paciente" type="button" id="boton-modal-crear" class="btn btn-primary btn-block" href="{{route('recepcionpacientes.index')}}" >
+                                        <i class="fa fa-plus-circle"></i> &nbsp;Registrar Completo
                                     </button>
                                     <small class="form-text text-muted">&nbsp;</small>
                                 </div>

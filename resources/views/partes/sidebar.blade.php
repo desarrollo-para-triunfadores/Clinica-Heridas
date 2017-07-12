@@ -2,6 +2,7 @@
     <section class="sidebar">
         <ul class="sidebar-menu">
             <li class="header" align="center">menú principal</li>
+            {{--
             <li id="side-pacientes" class="treeview">
                 <a href="#">
                     <i class="fa fa-user-o" aria-hidden="true"></i> <span>Pacientes</span>
@@ -13,6 +14,7 @@
                     <li id="side-elem-pacientes-pacientes"><a href="{{ route('pacientes.index') }}"><i class="fa fa-circle-o"></i> Pacientes</a></li>                    
                 </ul>
             </li>
+            --}}
             <li id="side-profesionales" class="treeview">
                 <a href="#">
                     <i class="fa fa-stethoscope" aria-hidden="true"></i>
@@ -120,16 +122,23 @@
             {{-- Recepcion de paciente --}}
             <li id="side-general-li" class="treeview">
                 <a href="#">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <i class="fa fa-address-card" aria-hidden="true"></i>
                     <span>Gestión de Pacientes</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
+
+
+                    <li id="side-elem-pacientes-pacientes">
+                        <a href="{{ route('pacientes.index') }}"><i class="fa fa-vcard-o"></i>Pacientes</a>
+                    </li>
+
+
                     <li id="side-consultorios" class="">
-                        <a href="{{-- route('recepcion_paciente') --}}">
-                            <i class="fa fa-calendar"></i> <span>Recibir Pacientes</span>
+                        <a href="{{ route('recepcionpacientes.index') }}">
+                            <i class="fa fa-check-square-o"></i> <span>Recibir Pacientes</span>
                             <span class="pull-right-container"></span>
                         </a>
                     </li>
@@ -142,6 +151,14 @@
                     </li>
 
                 </ul>
+            </li>
+
+            <li id="side-backup" class="">
+                <a href="{{-- route('consultorios.index') --}}">
+                    <i class="fa fa-save"></i> <span>Respaldo de Datos</span>
+                    <span class="pull-right-container">
+                    </span>
+                </a>
             </li>
 
         </ul>

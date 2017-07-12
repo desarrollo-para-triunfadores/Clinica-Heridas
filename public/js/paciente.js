@@ -370,10 +370,14 @@ $(function (){
 $(document).on('click', '.borrar', function (event) {
     event.preventDefault();
     var friesgo = $($(this).closest('tr')["0"].lastElementChild).find("input")["0"].value;
-    friesgo_seleccionadas.splice(friesgo_seleccionadas.indexOf(fiesgo), 1);
+    friesgo_seleccionadas.splice(friesgo_seleccionadas.indexOf(friesgo), 1);
     $(this).closest('tr').remove();
 });
 
+
+/**Global*/
+var friesgo_seleccionadas = [];
+/******* */
 
 function agregar_a_tabla(friesgo) {
     var tabla = document.getElementById("tabla_friesgo");

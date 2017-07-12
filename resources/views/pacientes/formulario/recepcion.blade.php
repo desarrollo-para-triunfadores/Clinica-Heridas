@@ -9,7 +9,7 @@
     <div class="content-wrapper" id="creacion-recepcion" style="min-height: 916px;" xmlns="http://www.w3.org/1999/html">
         <section class="content-header">
             <h1>
-                Recepcion / Mesa de Entrada
+                Registro de Paciente / Mesa de Entrada
                 <small>registros almacenados</small>
             </h1>
             <ol class="breadcrumb">
@@ -98,19 +98,20 @@
                                                         <select style="width: 100%"  name="persona_id" id="persona_id"  placeholder="campo requerido"  class="select3 form-control">
                                                             <option value="">-</option>
                                                             @foreach($pacientes as $paciente)
-                                                                <option value="{{$paciente->id}}">{{$paciente->persona->nombre}} {{$paciente->persona->apellido}} - tel: {{$paciente->persona->telefono}} </option>
+                                                                <option value="{{$paciente->id}}"><b>{{$paciente->persona->nombre}} {{$paciente->persona->apellido}}</b> - tel: {{$paciente->persona->telefono}} </option>
                                                             @endforeach
                                                         </select>
                                                         <input id="add-propietario_chk" onclick="mostrarFormPropietario()" type="checkbox">El Propietario no aparece en la lista</input>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <button title="Registrar un enfermero" type="button" id="boton-modal-crear" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">
+                                                <i class="fa fa-address-book"></i> &nbsp;Registrar nuevo paciente
+                                            </button>
                                         </div>
                                         <br><br><br>
 
-                                        <button title="Registrar un enfermero" type="button" id="boton-modal-crear" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal-crear">
-                                            <i class="fa fa-plus-circle"></i> &nbsp;Registrar nuevo paciente
-                                        </button>
+
                                     </section>
 
                                     <h2>Antecedentes Mórbidos</h2>
@@ -170,19 +171,19 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label>ACV:</label>
-                                                    <select style="width: 60%" name="" id=""  class="select3 form-control" placeholder="campo requerido" >
+                                                    <select style="width: 90%" name="" id=""  MAXLENGTH=5 class="select3 form-control" placeholder="campo requerido" >
                                                         <option value=true>Si</option>
                                                         <option value=false>No</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-md-2">
-                                                        <label>Fecha:</label>
-                                                        <input name="fecha_acv" id="fecha_acv" type="date" class="datepicker" title="fecha aproximada del accidente cerebro-vascular" placeholder="campo requerido" >
+                                                    <label>Fecha:</label>
+                                                    <input name="fecha_acv" id="fecha_acv" MAXLENGTH=5 type="date" class="datepicker" title="fecha aproximada del accidente cerebro-vascular" placeholder="campo requerido" >
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="col-md-9 controls">
+                                        <br>
+                                        <div class="col-md-9">
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <label>Neuropatia:</label>
@@ -193,24 +194,24 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label>HTA:</label>
-                                                    <select style="width: 60%" name="" id=""  class="select3 form-control" placeholder="campo requerido" >
+                                                    <select style="width: 90%" name="" id="" MAXLENGTH=5  class="select3 form-control" placeholder="campo requerido" >
                                                         <option value=true>Si</option>
                                                         <option value=false>No</option>
                                                     </select>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <label>Tratamiento:</label>
-                                                    <input name="tratamiento_hta" id="tratamiento_hta" type="text" class="" title="Tratamiento que tiene la HTA" placeholder="" >
+                                                    <input name="tratamiento_hta" id="tratamiento_hta" MAXLENGTH=10 type="text" class="" title="Tratamiento que tiene la HTA" placeholder="" >
                                                 </div>
-
                                             </div>
                                         </div>
+                                        <br>
                                         <div class="col-md-12 controls">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Otros</label>
-                                                        <input name="otros_antecedentes_morbidos" id="otros_antecedentes_morbidos" type="text" maxlength="500" class="form-control" placeholder="campo opcional." >
+                                                        <input name="otros_antecedentes_morbidos" id="otros_antecedentes_morbidos" type="textarea" maxlength="500" class="form-control" placeholder="campo opcional." >
                                                     </div>
                                                 </div>
                                             </div>
@@ -279,20 +280,20 @@
                                         <legend>Tratamiento Medicamentoso</legend>
                                         <div class="col-md-8 controls">
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-8">
                                                     <div class="form-group">
                                                         <label>Seleccione el tratamiento:</label>
-                                                        <select style="width: 40%"  title="Seleccione el tratamiento que sigue el paciente de la lista desplegable" name="tratamiento_medicamentoso_id"  id="tratamiento_medicamentoso_id" placeholder="campo requerido"  class="select3 form-control">
+                                                        <select style="width: 100%"  title="Seleccione el tratamiento que sigue el paciente de la lista desplegable" name="tratamiento_medicamentoso_id"  id="tratamiento_medicamentoso_id" placeholder="campo requerido"  class="select3 form-control">
                                                             <option value="1">Tratamiento "A"</option>
                                                             <option value="2">Tratamiento "B"</option>
                                                             <option value="3">Tratamiento "C"</option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <button title="Registrar un nombre de tratamiento" type="button" id="boton-modal-crear" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">
-                                                    <i class="fa fa-plus-circle"></i> &nbsp;Registrar Tratamiento
-                                                </button>
                                             </div>
+                                            <button title="Registrar un nombre de tratamiento" type="button" id="boton-modal-crear" class="btn btn-primary" data-toggle="modal" data-target="#modal-crear">
+                                                <i class="fa fa-edit"></i> &nbsp;Registrar Tratamiento
+                                            </button>
                                         </div>
                                     </section>
 
@@ -330,10 +331,10 @@
                                             <legend>Estudios Complementarios</legend>
                                             <div class="col-md-8 controls">
                                                 <div class="row">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-8">
                                                         <div class="form-group">
                                                             <label>Ecografia:</label>
-                                                            <select style="width: 40%"  title="Seleccione el tratamiento que sigue el paciente de la lista desplegable" name="tratamiento_medicamentoso_id"  id="tratamiento_medicamentoso_id" placeholder="campo requerido"  class="select3 form-control">
+                                                            <select style="width: 90%"  title="Seleccione el tratamiento que sigue el paciente de la lista desplegable" name="tratamiento_medicamentoso_id"  id="tratamiento_medicamentoso_id" placeholder="campo requerido"  class="select3 form-control">
                                                                 <option value="1">Tratamiento "A"</option>
                                                                 <option value="2">Tratamiento "B"</option>
                                                                 <option value="3">Tratamiento "C"</option>
@@ -369,6 +370,7 @@
     </div>
 
 @include('pacientes.factoresRiesgo')
+@include('pacientes.formulario.create')
 
 @endsection
 @section('script')
