@@ -8,8 +8,8 @@ Paises registrados
 <div class="content-wrapper" style="min-height: 916px;">
     <section class="content-header">
         <h1>
-            Turnos
-            <small>turnos del día</small>
+            Agenda
+            <small>registros de turnos</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-suitcase"></i> Generales</a></li>
@@ -359,5 +359,9 @@ Paises registrados
 
 @endsection
 @section('script') 
+<script>
+            $("#side-turnos-li").addClass("active");
+            $("#side-ele-turnos-dia").addClass("active");  
+</script>
 <script src="{{ asset('js/turno.js') }}"></script>
 @endsection

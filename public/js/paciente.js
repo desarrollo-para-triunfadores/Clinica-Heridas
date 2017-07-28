@@ -98,15 +98,113 @@ $('#example tbody').on('mouseenter', 'td', function () {
     $(table.cells().nodes()).removeClass('highlight');
     $(table.column(colIdx).nodes()).addClass('highlight');
 });
+
+
+
+
+
+
+
+
+
+//Datatable
+var table_factores = $('#tabla_factores').DataTable({
+    language: {
+        url: "/js/spanish.json"
+    }
+});
+
+$('a.toggle-vis').on('click', function (e) {
+    e.preventDefault();
+    // Get the column API object
+    var column = table_factores.column($(this).attr('data-column'));
+    // Toggle the visibility
+    column.visible(!column.visible());
+});
+
+$('#tabla_factores tbody').on('mouseenter', 'td', function () {
+    var colIdx = table_factores.cell(this).index().column;
+
+    $(table_factores.cells().nodes()).removeClass('highlight');
+    $(table_factores.column(colIdx).nodes()).addClass('highlight');
+});
+
+
+
+
+
+
+
+//Datatable tabla_medicamentos
+var table_medicamentos = $('#tabla_medicamentos').DataTable({
+    language: {
+        url: "/js/spanish.json"
+    }
+});
+
+$('a.toggle-vis').on('click', function (e) {
+    e.preventDefault();
+    // Get the column API object
+    var column = table_medicamentos.column($(this).attr('data-column'));
+    // Toggle the visibility
+    column.visible(!column.visible());
+});
+
+$('#tabla_medicamentos tbody').on('mouseenter', 'td', function () {
+    var colIdx = table_medicamentos.cell(this).index().column;
+    $(table_medicamentos.cells().nodes()).removeClass('highlight');
+    $(table_medicamentos.column(colIdx).nodes()).addClass('highlight');
+});
+
+
+
+
+
+
+
+
+//Datatable tabla_valoraciones
+var tabla_valoraciones = $('#tabla_valoraciones').DataTable({
+    language: {
+        url: "/js/spanish.json"
+    }
+});
+
+$('a.toggle-vis').on('click', function (e) {
+    e.preventDefault();
+    // Get the column API object
+    var column = tabla_valoraciones.column($(this).attr('data-column'));
+    // Toggle the visibility
+    column.visible(!column.visible());
+});
+
+$('#tabla_valoraciones tbody').on('mouseenter', 'td', function () {
+    var colIdx = tabla_valoraciones.cell(this).index().column;
+    $(tabla_valoraciones.cells().nodes()).removeClass('highlight');
+    $(tabla_valoraciones.column(colIdx).nodes()).addClass('highlight');
+});
+
+
+
+
+
+
+
+
 //Date picker
 $('.datepicker').datepicker({
     autoclose: true,
+    startDate: "-80y",
+    endDate: "0y",
+    todayHighlight: true,
     orientation: "bottom auto",
     format: "dd/mm/yyyy",
     language: "es"
 });
 
+
 //Croppie.js | create
+
 //se instancia el plugin
 var basic_nuevo = $('#main-cropper_nuevo').croppie({
     enableExif: true,
@@ -148,7 +246,9 @@ $('.actionUpload-nuevo input').on('change', function () {
 });
 
 
+
 //Croppie.js | update
+
 //se instancia el plugin
 var basic_update = $('#main-cropper_update').croppie({
     enableExif: true,
@@ -162,6 +262,7 @@ var basic_update = $('#main-cropper_update').croppie({
         height: 275
     }
 });
+
 //carga imagen al plugin
 function readFile2(input) {
     if (input.files && input.files[0]) {
@@ -174,6 +275,7 @@ function readFile2(input) {
         reader2.readAsDataURL(input.files[0]);
     }
 }
+
 //evento sobre el botón subir
 $('.actionUpload-update input').on('change', function () {
     $('#main-cropper_update').removeClass('hide');
@@ -190,14 +292,18 @@ $('.actionUpload-update input').on('change', function () {
 
 
 // Enviar datos.
+
 function mandar(tipo_form) { //tipo_form puede ser create o update
+
     var redireccion = "/pacientes";
+
 
 //// Este método sirve para ver el contenido del formdata
 //for (var pair of formData.entries())
 //{
 // console.log(pair[0]+ ', '+ pair[1]); 
 //}
+
     var form = $("#form-" + tipo_form);
     var url = form.attr("action");
     var token = $("#token-" + tipo_form).val();
@@ -233,7 +339,7 @@ function mandar(tipo_form) { //tipo_form puede ser create o update
                             window.location.href = redireccion;
                         },
                         error: function () {
-                            console.log('Upload error: '+throwError);
+                            console.log('Upload error');
                         }
                     });
                 });
@@ -309,102 +415,4 @@ function mandar(tipo_form) { //tipo_form puede ser create o update
             });
         }
     }
-}
-
-/** Wizard */
-var handleBootstrapWizards = function () {
-    "use strict";
-    $("#wizard-recepcion-paciente").bwizard();
-};
-
-$(function (){
-    $("#wizard-recepcion-paciente").steps({
-        headerTag: "h2",
-        bodyTag: "section",
-        transitionEffect: "slideLeft",
-        onStepChanging: function (event, currentIndex, newIndex)
-        {
-            // Siempre permitir volver para atras
-            if (currentIndex > newIndex)
-            {
-                return true;
-            }
-            /*Paso 1° :*/
-            if((currentIndex === 0))
-            {
-                return true;
-            }
-            /*Paso 2° :*/
-            if((currentIndex === 1)){
-                return true;
-            }
-            /*Paso 3° */
-            if((currentIndex===2)){
-                return true;
-            }
-            /*Paso 4° */
-            if((currentIndex===3)){
-                return true;
-            }
-            /*Paso 5° */
-            if((currentIndex===4)){
-                return true;
-            }
-
-        },
-        onStepChanged: function (event, currentIndex)
-        {
-            $(".select3").select2({
-                placeholder: "seleccione una opción"
-            });
-        },
-        onFinished: function (event, currentIndex)
-        {
-            $('#enviar_datos_inmueble').click();
-            //crearInmueble();
-        }
-    });
-});
-
-
-$(document).on('click', '.borrar', function (event) {
-    event.preventDefault();
-    var friesgo = $($(this).closest('tr')["0"].lastElementChild).find("input")["0"].value;
-    friesgo_seleccionadas.splice(friesgo_seleccionadas.indexOf(friesgo), 1);
-    $(this).closest('tr').remove();
-});
-
-
-/**Global*/
-var friesgo_seleccionadas = [];
-/******* */
-
-function agregar_a_tabla(friesgo) {
-    var tabla = document.getElementById("tabla_friesgo");
-    var row = tabla.insertRow(0);
-    //var cell0 = row.insertCell(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    //cell0.innerHTML = caracteristica.id;
-    cell1.innerHTML = friesgo.nombre;
-    cell2.innerHTML = friesgo.descripcion;
-    cell3.innerHTML = '<input type="button" class="borrar" value="Eliminar" />';
-    cell4.innerHTML = '<input type="text" name="friesgo' + friesgo.id + '" class="hide" value="' + friesgo.id + '" />';
-    friesgo_seleccionadas.push(friesgo.id);
-    $('#cantidad_friesgo').val(friesgo_seleccionadas.length);
-}
-function agregar_factor() {
-    alert('se deberia agregar un factor');
-    $("#combo option:selected").each(function () {
-        var factor = JSON.parse($(this).attr('value'));
-        if (!friesgo_seleccionadas.includes(factor.id)) {
-            agregar_a_tabla(factor);
-        } else {
-            $("#boton-modal-elemento-seleccionado").click();
-        }
-        $("#combo").val(null).trigger("change");
-        $("#boton_cerrar_crear").click();
-    });
 }

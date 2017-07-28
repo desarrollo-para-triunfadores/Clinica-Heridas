@@ -51,6 +51,17 @@
 
 <!-- croppie -->
 <link rel="stylesheet" type="text/css" href="{{ asset('plantilla/AdminLTE/plugins/croppie/css/croppie.css') }}">
+
+<!-- jquery-steps-master -->
+<link type="text/css" rel="stylesheet" href="{{ asset('plantilla/AdminLTE/plugins/jquery-steps-master/css/jquery.steps.css') }}  ">
+
+
+
+<!-- wizard-bootstrap -->
+<link type="text/css" rel="stylesheet" href="{{ asset('plantilla/AdminLTE/plugins/twitter-bootstrap-wizard-master/prettify.css') }}">
+
+
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -58,8 +69,4 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<!-- Para el Toggle Button en Roles -->
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
-<!-- jquery-steps-master -->
-<link type="text/css" rel="stylesheet" href="{{ asset('plantilla/AdminLTE/plugins/jquery-steps-master/css/jquery.steps.css') }}  ">

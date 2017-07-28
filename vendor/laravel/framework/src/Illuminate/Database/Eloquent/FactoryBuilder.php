@@ -5,12 +5,9 @@ namespace Illuminate\Database\Eloquent;
 use Closure;
 use Faker\Generator as Faker;
 use InvalidArgumentException;
-use Illuminate\Support\Traits\Macroable;
 
 class FactoryBuilder
 {
-    use Macroable;
-
     /**
      * The model definitions in the container.
      *
@@ -95,7 +92,7 @@ class FactoryBuilder
     /**
      * Set the states to be applied to the model.
      *
-     * @param  array|mixed  $states
+     * @param  array|dynamic  $states
      * @return $this
      */
     public function states($states)
@@ -146,7 +143,7 @@ class FactoryBuilder
     protected function store($results)
     {
         $results->each(function ($model) {
-            $model->setConnection($model->newQueryWithoutScopes()->getConnection()->getName());
+            $model->setConnection($model->query()->getConnection()->getName());
 
             $model->save();
         });
@@ -207,7 +204,7 @@ class FactoryBuilder
             $this->faker, $attributes
         );
 
-        return $this->expandAttributes(
+        return $this->callClosureAttributes(
             array_merge($this->applyStates($definition, $attributes), $attributes)
         );
     }
@@ -257,25 +254,19 @@ class FactoryBuilder
     }
 
     /**
-     * Expand all attributes to their underlying values.
+     * Evaluate any Closure attributes on the attribute array.
      *
      * @param  array  $attributes
      * @return array
      */
-    protected function expandAttributes(array $attributes)
+    protected function callClosureAttributes(array $attributes)
     {
         foreach ($attributes as &$attribute) {
-            if ($attribute instanceof Closure) {
-                $attribute = $attribute($attributes);
-            }
+            $attribute = $attribute instanceof Closure
+                            ? $attribute($attributes) : $attribute;
 
-            if ($attribute instanceof static) {
-                $attribute = $attribute->create()->getKey();
-            }
-
-            if ($attribute instanceof Model) {
-                $attribute = $attribute->getKey();
-            }
+            $attribute = $attribute instanceof Model
+                            ? $attribute->getKey() : $attribute;
         }
 
         return $attributes;

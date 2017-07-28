@@ -3,28 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/turnos_del_dia/formulario/tomar_turno.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/turnos_del_dia/formulario/reprogramar.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/database/migrations/2017_06_11_160848_create_turnos_table.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Http/ViewComposers/RelojComposer.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/public/js/turnera.js</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/turnera/main.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/turnos/formulario/tomar_turno.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/turnos_del_dia/formulario/create.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/turnos/main.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/routes/web.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/turnos_del_dia/formulario/llamar.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Providers/ComposerServiceProvider.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/turnera/partes/tablas.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/turnera/partes/reloj.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/turnos_del_dia/formulario/cancelar.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/public/js/turno.js</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/turnos_del_dia/main.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Http/Controllers/TurnosController.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Turno.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/turnos_del_dia/formulario/confirmar.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Http/Controllers/EnfermerosController.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Http/ViewComposers/TurneraComposer.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/valoraciones/formulario/create_seguimiento.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Paciente.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/app/TratamientoSeguimiento.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Http/Controllers/HistoriaClinicaController.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Http/Controllers/SeguimientosController.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/public/js/medicamento.js</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/pacientes/main.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/public/js/historia_nueva.js</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/valoraciones/formulario/modal_tratamientos.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/pacientes/show.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Seguimiento.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/valoraciones/main.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/public/js/paciente.js</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/paises/main.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Valoracion.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/pacientes/formulario/create.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/partes/scripts.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/valoraciones/formulario/create.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Http/Controllers/ValoracionesController.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica/public/js/valoracion.js</file>
         </group>
     </open-files>
 </project-private>

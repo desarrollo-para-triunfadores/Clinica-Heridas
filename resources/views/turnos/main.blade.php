@@ -54,7 +54,7 @@ Paises registrados
                                     <td class="text-center text-bold">{{$agenda["agenda"]["turno"]}}</td>
                                     <td class="text-center text-bold">{{$agenda["agenda"]["hora_inicio"]}}</td>
                                     <td class="text-center text-bold">{{$agenda["agenda"]["hora_fin"]}}</td>
-                                    <td class="text-center text-bold">{{$agenda["turnos_ocupados"]}}/{{$agenda["agenda"]["cupo_turnos"]}}</td>
+                                    <td class="text-center text-bold">{{$agenda["agenda"]["cupo_turnos"]}}/{{$agenda["turnos_ocupados"]}}</td>
                                     <td class="text-center">
                                         <a onclick="completar_campos({{$agenda["agenda"]["id"]}})" title="Tomar turno" class="btn btn-social-icon btn-warning btn-sm"><i class="fa fa-pencil"></i></a>                                        
                                     </td>
@@ -105,5 +105,9 @@ Paises registrados
 
 @endsection
 @section('script') 
+<script>
+            $("#side-turnos-li").addClass("active");
+            $("#side-ele-obtener-turno").addClass("active");  
+</script>
 <script src="{{ asset('js/turno.js') }}"></script>
 @endsection

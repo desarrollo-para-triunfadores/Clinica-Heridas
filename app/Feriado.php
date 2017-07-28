@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Feriado extends Model {
 
     protected $table = "feriados";
-    protected $fillable = ['fecha', 'motivo', 'usuario_id'];
+    protected $fillable = ['fecha', 'motivo'];
 
-    public function user(){
-        return $this->belongsTo('App\User');
-    }
 }

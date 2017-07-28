@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Str;
 use Illuminate\Support\HtmlString;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Bus\Dispatcher;
@@ -230,19 +231,15 @@ if (! function_exists('cache')) {
             return app('cache')->get($arguments[0], isset($arguments[1]) ? $arguments[1] : null);
         }
 
-        if (! is_array($arguments[0])) {
-            throw new Exception(
-                'When setting a value in the cache, you must pass an array of key / value pairs.'
-            );
-        }
+        if (is_array($arguments[0])) {
+            if (! isset($arguments[1])) {
+                throw new Exception(
+                    'You must set an expiration time when putting to the cache.'
+                );
+            }
 
-        if (! isset($arguments[1])) {
-            throw new Exception(
-                'You must specify an expiration time when setting a value in the cache.'
-            );
+            return app('cache')->put(key($arguments[0]), reset($arguments[0]), $arguments[1]);
         }
-
-        return app('cache')->put(key($arguments[0]), reset($arguments[0]), $arguments[1]);
     }
 }
 
@@ -423,12 +420,51 @@ if (! function_exists('encrypt')) {
     /**
      * Encrypt the given value.
      *
-     * @param  mixed  $value
+     * @param  string  $value
      * @return string
      */
     function encrypt($value)
     {
         return app('encrypter')->encrypt($value);
+    }
+}
+
+if (! function_exists('env')) {
+    /**
+     * Gets the value of an environment variable.
+     *
+     * @param  string  $key
+     * @param  mixed   $default
+     * @return mixed
+     */
+    function env($key, $default = null)
+    {
+        $value = getenv($key);
+
+        if ($value === false) {
+            return value($default);
+        }
+
+        switch (strtolower($value)) {
+            case 'true':
+            case '(true)':
+                return true;
+            case 'false':
+            case '(false)':
+                return false;
+            case 'empty':
+            case '(empty)':
+                return '';
+            case 'null':
+            case '(null)':
+                return;
+        }
+
+        if (strlen($value) > 1 && Str::startsWith($value, '"') && Str::endsWith($value, '"')) {
+            return substr($value, 1, -1);
+        }
+
+        return $value;
     }
 }
 

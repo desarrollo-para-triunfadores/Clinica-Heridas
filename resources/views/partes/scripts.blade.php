@@ -54,6 +54,11 @@ $.widget.bridge('uibutton', $.ui.button);
 <!-- bootstrap color picker -->
 <script src="{{ asset('plantilla/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.min.js') }}"></script>
 
+
+
+
+
+
 <!-- Select2 -->
 <script src="{{ asset('plantilla/AdminLTE/plugins/select2/select2.full.min.js') }}"></script>
 
@@ -61,14 +66,25 @@ $.widget.bridge('uibutton', $.ui.button);
 <script src="{{ asset('plantilla/AdminLTE/plugins/datatables/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plantilla/AdminLTE/plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
 
+<!--jquery-steps-master-->
+<script src="{{ asset('plantilla/AdminLTE/plugins/jquery-steps-master/build/jquery.steps.js') }}"></script>
 
 <!-- Croppie -->
 <script src="{{ asset('plantilla/AdminLTE/plugins/croppie/js/deploy.js') }}"></script>
 <script src="{{ asset('plantilla/AdminLTE/plugins/croppie/js/croppie.min.js') }}"></script>
 
-<!--jquery-steps-master-->
-<script src="{{ asset('plantilla/AdminLTE/plugins/jquery-steps-master/build/jquery.steps.js') }}"></script>
+
+<!-- wizard-bootstrap -->
+<script src="{{ asset('plantilla/AdminLTE/plugins/twitter-bootstrap-wizard-master/jquery.bootstrap.wizard.min.js') }}"></script>
+<script src="{{ asset('plantilla/AdminLTE/plugins/twitter-bootstrap-wizard-master/prettify.js') }}"></script>
+<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+
+
+
 <script>
+
 //esta variable se usa para traducir todas las tablas del sistema. Por alguna razón hay incompatibilidad entre el cambio del lenguaje y los filtros individaules en las columnas. Por eso se recurre a esto.
 var tabla_traducida = {
     "sProcessing": "Procesando...",
@@ -139,6 +155,4 @@ $(".my-colorpicker2").colorpicker({
 });
 </script>
 
-<!-- Para el Toggle Button en Roles -->
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+

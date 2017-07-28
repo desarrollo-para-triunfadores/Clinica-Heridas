@@ -24,5 +24,25 @@ class Paciente extends Model {
     public function turnos() {
         return $this->hasMany('App\Turnos');
     }
+
+    public function antecedentes() {
+        return $this->hasOne('App\Antecedentes');
+    }
+
+    public function factores_paciente() {
+        return $this->hasMany('App\FactorPaciente');
+    }
+
+    public function medicacionPaciente() {
+        return $this->hasMany('App\MedicacionPaciente');
+    }
+
+    public function estudios() {
+        return $this->hasOne('App\Estudio');
+    }
+
+     public function valoraciones() {
+        return $this->hasMany('App\Valoracion');
+    }
     
 }

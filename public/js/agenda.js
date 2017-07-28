@@ -1,5 +1,8 @@
-
-$("#side-ele-agendas").addClass("active");
+$("#side-general-li").addClass("active");
+$("#side-general-ul").addClass("menu-open");
+$("#side-ele-atencion-li").addClass("active");
+$("#side-ele-atencion-ul").addClass("menu-open");
+$("#side-ele-horarios-atencion").addClass("active");
 
 
 function completar_campos(agenda) {
@@ -42,8 +45,8 @@ $('#example tbody').on('mouseenter', 'td', function () {
 /*
 $("#calendario").datepicker( "option", "monthNamesShort", ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'] );
 $("#calendario").datepicker( "option", "monthNames", ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']);
-$("#calendario").datepicker( "option", "dayNames", ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']);
-$("#calendario").datepicker( "option", "dayNamesMin", ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb']);
+$("#calendario").datepicker( "option", "dayNames", ['Domingo', 'Lunes', 'Martes', 'Miï¿½rcoles', 'Jueves', 'Viernes', 'Sï¿½bado']);
+$("#calendario").datepicker( "option", "dayNamesMin", ['Dom','Lun','Mar','Miï¿½','Juv','Vie','Sï¿½b']);
 $("#calendario").datepicker( "option", "minDate", 0);
 $("#calendario").datepicker( "option", "dateFormat", 'dd/mm/yy');
 $("#calendario").datepicker( "option", "theme", 'customTheme');

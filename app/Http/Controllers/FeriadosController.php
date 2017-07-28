@@ -47,10 +47,8 @@ class FeriadosController extends Controller
      */
     public function store(Request $request) {        
         $feriado = new Feriado($request->all());
-        $feriado->usuario_id = Auth::user()->id;
-        $feriado->fecha = $request->fecha;
         $feriado->save();
-        Session::flash('message', 'Se ha registrado un nuevo médico.');
+        Session::flash('message', '¡Se ha registrado un nueva fecha no laboral con exito!');
         return redirect()->route('feriados.index');
     }
 

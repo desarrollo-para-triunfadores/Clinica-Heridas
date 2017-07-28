@@ -42,16 +42,27 @@ class PacientesController extends Controller {
                         ->with('localidades', $localidades);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create() {
         //
     }
 
-
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request) {
+
         $nombreImagen = 'sin imagen';
         if ($request->file('imagen')) {
             $file = $request->file('imagen');
-            $nombreImagen = 'persona_' . time() . '.jpg' /*. $file->getClientOriginalExtension()*/;
+            $nombreImagen = 'persona_' . time() . '.' . $file->getClientOriginalExtension();
             Storage::disk('personas')->put($nombreImagen, \File::get($file));
         }
         /* datos de persona */

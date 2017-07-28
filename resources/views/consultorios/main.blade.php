@@ -27,7 +27,7 @@ Consultorios registrados
                     </div>
                     <div class="box-body ">                            
                         @include('partes.msj_acciones')
-                        <table id="example" class="display" cellspacing="0" width="100%">
+                       <table id="example" class="row-border responsive hover order-column" cellspacing="0" width="100%">
                             <thead>
                                 <tr>                                  
                                     <th class="text-center">Nombre</th>
@@ -45,11 +45,17 @@ Consultorios registrados
                                 </tr>
                                 @endforeach
                             </tbody>
+                            <tfoot>
+                                 <tr>                                  
+                                    <th class="text-center">Nombre</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div> 
                     <div class="box-footer">
                         <button title="Registrar una consultorio" type="button" id="boton-modal-crear" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-crear">
-                            <i class="fa fa-plus-circle"></i> &nbsp;Registrar consultorio
+                            <i class="fa fa-plus-circle"></i> &nbsp;registrar consultorio
                         </button>
                     </div>
                 </div>

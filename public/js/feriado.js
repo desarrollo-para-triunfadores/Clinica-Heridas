@@ -1,9 +1,13 @@
-
+$("#side-general-li").addClass("active");
+$("#side-general-ul").addClass("menu-open");
+$("#side-ele-atencion-li").addClass("active");
+$("#side-ele-atencion-ul").addClass("menu-open");
 $("#side-ele-feriados").addClass("active");
 
 
+
 function completar_campos(feriado) {
-    $('#nombre').val(feriado.fecha);
+    $('#fecha').val(feriado.fecha);
     $('#motivo').val(feriado.motivo);
     $('#form-update').attr('action', '/feriados/' + feriado.id);
     $('#boton-modal-update').click();
@@ -14,39 +18,46 @@ function abrir_modal_borrar(id) {
     $('#boton-modal-borrar').click();
 }
 
-//Datatable
+
+//Datatable - instaciaci√≥n del plugin
 var table = $('#example').DataTable({
-    language: {
-        url: "/js/spanish.json"
+    "language": tabla_traducida // esta variable esta instanciada donde est√°n declarados todos los js.    
+});
+
+
+//Datatables | filtro individuales - instanciaci√≥n de los filtros
+$('#example tfoot th').each(function () {
+    var title = $(this).text();
+    if (title !== 'Acciones') { //ignoramos la columna de los botones
+        $(this).html('<input type="text" placeholder="Buscar ' + title + '" />');
     }
 });
 
-$('a.toggle-vis').on('click', function (e) {
-    e.preventDefault();
-    // Get the column API object
-    var column = table.column($(this).attr('data-column'));
-    // Toggle the visibility
-    column.visible(!column.visible());
+//Datatables | filtro individuales - b√∫squeda 
+table.columns().every(function () {
+    var that = this;
+    $('input', this.footer()).on('keyup change', function () {
+        if (that.search() !== this.value) {
+            that.search(this.value).draw();
+        }
+    });
 });
 
+
+//Datatables | asocio el evento sobre el body de la tabla para que resalte fila y columna
 $('#example tbody').on('mouseenter', 'td', function () {
     var colIdx = table.cell(this).index().column;
-
     $(table.cells().nodes()).removeClass('highlight');
     $(table.column(colIdx).nodes()).addClass('highlight');
 });
 
-/**Seter de Calendario*/
 
-// Setter
-/*
-$("#calendario").datepicker( "option", "monthNamesShort", ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'] );
-$("#calendario").datepicker( "option", "monthNames", ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']);
-$("#calendario").datepicker( "option", "dayNames", ['Domingo', 'Lunes', 'Martes', 'MiÈrcoles', 'Jueves', 'Viernes', 'S·bado']);
-$("#calendario").datepicker( "option", "dayNamesMin", ['Dom','Lun','Mar','MiÈ','Juv','Vie','S·b']);
-$("#calendario").datepicker( "option", "minDate", 0);
-$("#calendario").datepicker( "option", "dateFormat", 'dd/mm/yy');
-$("#calendario").datepicker( "option", "theme", 'customTheme');
-$("#calendario").datepicker({
+
+//Date picker
+$('.datepicker').datepicker({
+    autoclose: true,
+    todayHighlight: true,
+    orientation: "bottom auto",
+    format: "dd/mm/yyyy",
+    language: "es"
 });
-    */

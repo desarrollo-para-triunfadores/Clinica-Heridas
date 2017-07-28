@@ -94,7 +94,7 @@ class MedicosController extends Controller
     public function destroy($id) {
         $medico = Medico::find($id);
         $medico->delete();
-        Session::flash('message', 'La información asociada al mádico ha sido eliminada del sistema');
+        Session::flash('message', 'La información asociada al médico ha sido eliminada del sistema');
         return redirect()->route('medicos.index');
     }
 }

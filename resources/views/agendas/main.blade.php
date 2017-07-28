@@ -8,12 +8,12 @@ Consultorios registrados
 <div class="content-wrapper" style="min-height: 916px;">
     <section class="content-header">
         <h1>
-            Consultorios
+            Horarios de atención
             <small>registros almacenados</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-suitcase"></i> Generales</a></li>
-            <li class="active">Consultorios</li>
+            <li class="active">Horarios de atención</li>
         </ol>
     </section>
     <section class="content animated fadeIn">
@@ -72,5 +72,5 @@ Consultorios registrados
 
 @endsection
 @section('script') 
-<script src="{{ asset('js/feriado.js') }}"></script>
+<script src="{{ asset('js/agenda.js') }}"></script>
 @endsection

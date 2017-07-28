@@ -39,24 +39,41 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/turnera', 'TurnosController@turnera')->name('turnera');
 
+    Route::resource('historias', 'HistoriaClinicaController');
+
+
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('configuraciones', 'ConfiguracionController');
     Route::resource('enfermeros', 'EnfermerosController');
     Route::resource('localidades', 'LocalidadesController');
     Route::resource('pacientes', 'PacientesController');
-    Route::resource('recepcionpacientes','RecepcionPacientesController');
     Route::resource('paises', 'PaisesController');
     Route::resource('medicos', 'MedicosController');
+    
+    
+    
+    Route::resource('factores', 'FactoresController');
+    
+    
+    
+    
     Route::resource('provincias', 'ProvinciasController');
     Route::resource('usuarios', 'UserController');
     Route::resource('obras_sociales', 'ObraSocialesController');
+    Route::resource('medicamentos', 'MedicamentosController');
     Route::resource('consultorios', 'ConsultoriosController');
     Route::resource('feriados', 'FeriadosController');
     Route::resource('agendas', 'AgendasController');
     Route::resource('turnos', 'TurnosController');
     Route::put('usuarios/actpass/{usuarios}', 'UserController@actPass');
     Route::put('usuarios/actconf/{usuarios}', 'UserController@actConf');
-    Route::resource('roles', 'RolesController');
+
+
+    Route::resource('seguimientos', 'SeguimientosController');
+    Route::resource('tratamientos', 'TratamientosController');
+    Route::resource('complicaciones', 'ComplicacionesController');
+    Route::resource('tratamientos_seguimiento', 'TratamientosSeguimientosController');
+    Route::resource('valoraciones', 'ValoracionesController');
 });
 
 

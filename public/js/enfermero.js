@@ -109,6 +109,9 @@ $('#example tbody').on('mouseenter', 'td', function () {
 //Date picker
 $('.datepicker').datepicker({
     autoclose: true,
+    todayHighlight: true,
+    startDate: "-80y",
+    endDate: "-18y",
     orientation: "bottom auto",
     format: "dd/mm/yyyy",
     language: "es"

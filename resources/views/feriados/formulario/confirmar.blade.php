@@ -11,14 +11,14 @@
                     <input name="_method" type="hidden" value="DELETE">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <h4 class="box-heading">¡Alerta de acción permanente!</h4>
-                    <p>Usted está a punto de proceder con la eliminación permanente del médico seleccionado. Si se encuentra completamente seguro prosiga con la acción.</p>
+                    <p>Usted está a punto de proceder con la eliminación permanente del registro seleccionado. Si se encuentra completamente seguro prosiga con la acción.</p>
                     <button id="boton_submit_borrar" type="submit" class="btn btn-primary hide"></button>
                 </form> 
                 <br>      
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">volver</button>
-                <button type="button" class="btn btn-outline" onclick="$('#boton_submit_borrar').click()">Eliminar Feriado</button>
+                <button type="button" class="btn btn-outline" onclick="$('#boton_submit_borrar').click()">eliminar día no laboral</button>
             </div>
         </div>
     </div>

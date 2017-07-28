@@ -2,7 +2,6 @@
     <section class="sidebar">
         <ul class="sidebar-menu">
             <li class="header" align="center">menú principal</li>
-            {{--
             <li id="side-pacientes" class="treeview">
                 <a href="#">
                     <i class="fa fa-user-o" aria-hidden="true"></i> <span>Pacientes</span>
@@ -14,7 +13,6 @@
                     <li id="side-elem-pacientes-pacientes"><a href="{{ route('pacientes.index') }}"><i class="fa fa-circle-o"></i> Pacientes</a></li>                    
                 </ul>
             </li>
-            --}}
             <li id="side-profesionales" class="treeview">
                 <a href="#">
                     <i class="fa fa-stethoscope" aria-hidden="true"></i>
@@ -50,116 +48,50 @@
                             <li id="side-ele-lugares-localidades"><a href="{{ route('localidades.index') }}"><i class="fa fa-circle-o"></i> Localidades</a></li>
                         </ul>
                     </li>
-                    <li id="side-ele-obras_sociales"><a href="{{ route('obras_sociales.index') }}"><i class="fa fa-circle-o"></i> Obras sociales</a></li>                    
-                </ul>
-            </li>
-            <li id="side-general-li" class="treeview">
-                <a href="#">
-                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                    <span>Calendario</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li id="side-ele-lugares-li">
-                        <a href="{{ route('agendas.index') }}"><i class="fa fa-calendar"></i> Agenda
-                            <span class="pull-right-container">
+                    <li id="side-ele-obras_sociales"><a href="{{ route('obras_sociales.index') }}"><i class="fa fa-circle-o"></i> Obras sociales</a></li> 
 
+                    <li id="side-ele-tratamientos"><a href="{{ route('tratamientos.index') }}"><i class="fa fa-circle-o"></i> Tratamientos</a></li> 
+                    <li id="side-ele-complicaciones"><a href="{{ route('complicaciones.index') }}"><i class="fa fa-circle-o"></i> Complicaciones</a></li> 
+
+
+                    <li id="side-ele-medicamentos"><a href="{{ route('medicamentos.index') }}"><i class="fa fa-circle-o"></i> Medicamentos</a></li> 
+                    <li id="side-ele-factores"><a href="{{ route('factores.index') }}"><i class="fa fa-circle-o"></i> Factores de riesgo</a></li> 
+                    <li id="side-ele-consultorios"><a href="{{ route('consultorios.index') }}"><i class="fa fa-circle-o"></i> Consultorios</a></li> 
+                    <li id="side-ele-atencion-li">
+                        <a href="#"><i class="fa fa-circle-o"></i> Horarios y días de atención
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
-                        <a href="{{ route('feriados.index') }}"><i class="fa fa-calendar-plus-o"></i> Feriados
-                            <span class="pull-right-container">
-
-                            </span>
-                        </a>
+                        <ul id="side-ele-atencion-ul" class="treeview-menu">
+                            <li id="side-ele-feriados"><a href="{{ route('feriados.index') }}"><i class="fa fa-circle-o"></i> Días no laborales</a></li>
+                            <li id="side-ele-horarios-atencion"><a href="{{ route('agendas.index') }}"><i class="fa fa-circle-o"></i> Horarios de atención</a></li>                            
+                        </ul>
                     </li>
-
                 </ul>
             </li>
 
-
-            <li id="side-consultorios" class="">
-                <a href="{{ route('consultorios.index') }}">
-                    <i class="fa fa-hospital-o"></i> <span>Consultorios</span>
-                    <span class="pull-right-container">
-                    </span>
-                </a>
-            </li>
-
-
-            <li id="side-general-li" class="treeview">
+            <li id="side-turnos-li" class="treeview">
                 <a href="#">
                     <i class="fa fa-calendar" aria-hidden="true"></i>
-                    <span>Gestión de Turnos</span>
+                    <span>Turnos</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li id="side-consultorios" class="">
-                        <a href="{{ route('turnos_dia') }}">
-                            <i class="fa fa-calendar"></i> <span>Agenda de turnos</span>
-                            <span class="pull-right-container"></span>
-                        </a>
-                    </li>
-                    <li id="side-consultorios" class="">
-                        <a href="{{ route('turnos.index') }}">
-                            <i class="fa fa-calendar"></i> <span>Obtener turno</span>
-                    <span class="pull-right-container">
-                    </span>
-                        </a>
-                    </li>
-                    <li id="side-consultorios" class="">
-                        <a href="{{ route('turnera') }}">
-                            <i class="fa fa-calendar"></i> <span>Turnera</span>
-                    <span class="pull-right-container">
-                    </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            {{-- Recepcion de paciente --}}
-            <li id="side-general-li" class="treeview">
-                <a href="#">
-                    <i class="fa fa-address-card" aria-hidden="true"></i>
-                    <span>Gestión de Pacientes</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-
-
-                    <li id="side-elem-pacientes-pacientes">
-                        <a href="{{ route('pacientes.index') }}"><i class="fa fa-vcard-o"></i>Pacientes</a>
-                    </li>
-
-
-                    <li id="side-consultorios" class="">
-                        <a href="{{ route('recepcionpacientes.index') }}">
-                            <i class="fa fa-check-square-o"></i> <span>Recibir Pacientes</span>
-                            <span class="pull-right-container"></span>
-                        </a>
-                    </li>
-                    <li id="side-consultorios" class="">
-                        <a href="{{ route('turnos.index') }}">
-                            <i class="fa fa-calendar"></i> <span>Obtener turno</span>
-                    <span class="pull-right-container">
-                    </span>
-                        </a>
-                    </li>
-
+                    <li id="side-ele-obtener-turno"><a href="{{ route('turnos.index') }}"><i class="fa fa-circle-o"></i> Obtener turno</a></li>                   
+                    <li id="side-ele-turnos-dia"><a href="{{ route('turnos_dia') }}"><i class="fa fa-circle-o"></i> Agenda</a></li> 
+                    <li id="side-ele-turnera"><a href="{{ route('turnera') }}"><i class="fa fa-circle-o"></i> Turnera</a></li> 
                 </ul>
             </li>
 
-            <li id="side-backup" class="">
-                <a href="{{-- route('consultorios.index') --}}">
-                    <i class="fa fa-save"></i> <span>Respaldo de Datos</span>
-                    <span class="pull-right-container">
-                    </span>
-                </a>
-            </li>
+
+
+
+
+
+
 
         </ul>
     </section>

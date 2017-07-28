@@ -1,9 +1,4 @@
-$("#side-general-li").addClass("active");
-$("#side-general-ul").addClass("menu-open");
-$("#side-ele-lugares-ul").addClass("menu-open");
-$("#side-ele-lugares-li").addClass("active");
-$("#side-ele-lugares-paises").addClass("active");
-
+//Info SIDEBAR: los atributos para señalizar el objeto en el sidebar se encuentran en los mains que hacen uso de este JS
 
 function completar_campos(id) {
     $('#agenda_id').val(id);
@@ -45,7 +40,9 @@ function abrir_modal_borrar(id) {
 
 //Date picker
 $('.datepicker').datepicker({
-    autoclose: true,
+    autoclose: true,    
+    startDate: "-0d",
+    todayHighlight: true,
     orientation: "bottom auto",
     //format: "dd/mm/yyyy",
     language: "es"

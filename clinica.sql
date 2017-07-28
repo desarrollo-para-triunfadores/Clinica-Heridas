@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 24-06-2017 a las 14:12:02
+-- Tiempo de generación: 03-06-2017 a las 10:02:33
 -- Versión del servidor: 5.7.15-1
 -- Versión de PHP: 7.0.12-2
 
@@ -19,37 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `clinica`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `agendas`
---
-
-CREATE TABLE `agendas` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `hora_inicio` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hora_fin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `turno` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cupo_turnos` int(11) NOT NULL,
-  `lunes` tinyint(1) NOT NULL,
-  `martes` tinyint(1) NOT NULL,
-  `miercoles` tinyint(1) NOT NULL,
-  `jueves` tinyint(1) NOT NULL,
-  `viernes` tinyint(1) NOT NULL,
-  `sabado` tinyint(1) NOT NULL,
-  `domingo` tinyint(1) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `agendas`
---
-
-INSERT INTO `agendas` (`id`, `hora_inicio`, `hora_fin`, `turno`, `cupo_turnos`, `lunes`, `martes`, `miercoles`, `jueves`, `viernes`, `sabado`, `domingo`, `created_at`, `updated_at`) VALUES
-(1, '08:00', '12:00', 'mañana', 10, 1, 1, 1, 1, 1, 1, 1, '2017-06-17 10:19:34', '2017-06-17 10:19:34'),
-(2, '16:00', '20:00', 'tarde', 10, 1, 1, 1, 1, 1, 1, 1, '2017-06-20 18:41:16', '2017-06-20 18:41:16');
 
 -- --------------------------------------------------------
 
@@ -83,28 +52,6 @@ INSERT INTO `configuraciones` (`id`, `nombre`, `telefono`, `telefono_contacto`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `consultorios`
---
-
-CREATE TABLE `consultorios` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descripcion` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `consultorios`
---
-
-INSERT INTO `consultorios` (`id`, `nombre`, `descripcion`, `created_at`, `updated_at`) VALUES
-(1, 'A1', NULL, '2017-06-17 10:22:42', '2017-06-17 10:22:42'),
-(2, 'A2', NULL, '2017-06-20 18:38:53', '2017-06-20 18:38:53');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `enfermeros`
 --
 
@@ -122,22 +69,8 @@ CREATE TABLE `enfermeros` (
 --
 
 INSERT INTO `enfermeros` (`id`, `matricula`, `persona_id`, `descripcion`, `created_at`, `updated_at`) VALUES
-(2, '457885', 4, NULL, '2017-05-21 20:02:20', '2017-05-21 20:02:20'),
-(3, '123123123', 5, NULL, '2017-06-11 09:46:04', '2017-06-11 09:46:04');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `feriados`
---
-
-CREATE TABLE `feriados` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `fecha` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `motivo` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(1, '3444566', 3, NULL, '2017-05-21 18:13:48', '2017-05-21 18:13:48'),
+(2, '457885', 4, NULL, '2017-05-21 20:02:20', '2017-05-21 20:02:20');
 
 -- --------------------------------------------------------
 
@@ -211,11 +144,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2017_05_03_225941_create_personas_table', 1),
 (9, '2017_05_03_230040_create_enfermeros_table', 1),
 (10, '2017_05_03_230133_create_pacientes_table', 1),
-(11, '2017_05_03_230306_create_configuraciones_table', 1),
-(12, '2017_06_03_225926_create_consultorios_table', 2),
-(13, '2017_06_03_225926_create_feriados_table', 2),
-(14, '2017_06_04_225926_create_agendas_table', 2),
-(15, '2017_06_11_160848_create_turnos_table', 2);
+(11, '2017_05_03_230306_create_configuraciones_table', 1);
 
 -- --------------------------------------------------------
 
@@ -327,9 +256,9 @@ CREATE TABLE `personas` (
 --
 
 INSERT INTO `personas` (`id`, `nombre`, `apellido`, `sexo`, `dni`, `fecha_nac`, `telefono`, `telefono_contacto`, `email`, `localidad_id`, `pais_id`, `foto_perfil`, `direccion`, `descripcion`, `created_at`, `updated_at`) VALUES
-(1, 'Horacio Alejandro', 'Kuszniruk', 'Masculino', '34448004', '19/05/2017', '3764241905', '3764159803', 'hacho.kuszniruk@gmail.com', 1, 1, 'persona_1498085358.', 'Av. Corrientes 2247', NULL, '2017-05-21 16:05:42', '2017-06-21 22:49:18'),
-(4, 'George', 'Cloney', 'Masculino', '15459635', '09/02/2017', '3764241905', '3764159803', 'hacho_kuszniruk@hotmail.com', 1, 1, 'persona_1495396940.jpg', 'Av. Corrientes 2247', NULL, '2017-05-21 20:02:20', '2017-05-21 20:02:20'),
-(5, 'Lionel', 'Messi', 'Masculino', '34444433', '06/14/2017', '123123', '123123', 'hacho_kuszniruk@hotmail.com', 1, 1, 'persona_1497179718.', 'asdasdasd', NULL, '2017-06-11 09:46:04', '2017-06-11 11:44:05');
+(1, 'Horacio Alejandro', 'Kuszniruk', 'Masculino', '34448004', '2017-05-19', '3764241905', '3764159803', 'hacho.kuszniruk@gmail.com', 1, 1, 'persona_1495388825.png', 'Av. Corrientes 2247', NULL, '2017-05-21 16:05:42', '2017-05-21 20:10:22'),
+(3, 'Horacio Alejandro', 'Kuszniruk', 'Masculino', '34448006', '2017-05-11', '3764241905', '3764159803', 'hacho.kuszniruk@gmail.com', 1, 1, 'persona_1496009358.', 'Av. Corrientes 2247', NULL, '2017-05-21 18:13:48', '2017-05-28 22:09:18'),
+(4, 'George', 'Cloney', 'Masculino', '15459635', '2017-02-09', '3764241905', '3764159803', 'hacho_kuszniruk@hotmail.com', 1, 1, 'persona_1495396940.jpg', 'Av. Corrientes 2247', NULL, '2017-05-21 20:02:20', '2017-05-21 20:02:20');
 
 -- --------------------------------------------------------
 
@@ -355,56 +284,6 @@ INSERT INTO `provincias` (`id`, `nombre`, `pais_id`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `turnos`
---
-
-CREATE TABLE `turnos` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `fecha` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `estado` enum('pendiente','esperando','atendido','reprogramado','cancelado','ausente') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comentario` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `agenda_id` int(10) UNSIGNED NOT NULL,
-  `paciente_id` int(10) UNSIGNED NOT NULL,
-  `enfermero_id` int(10) UNSIGNED DEFAULT NULL,
-  `consultorio_id` int(10) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `turnos`
---
-
-INSERT INTO `turnos` (`id`, `fecha`, `estado`, `comentario`, `agenda_id`, `paciente_id`, `enfermero_id`, `consultorio_id`, `created_at`, `updated_at`) VALUES
-(1, '20/06/2017', 'esperando', 'nada', 1, 1, NULL, NULL, '2017-06-17 10:24:03', '2017-06-21 22:53:47'),
-(2, '13/06/2017', 'esperando', 'nada', 1, 1, 2, NULL, '2017-06-17 10:24:11', '2017-06-21 22:54:04'),
-(3, '13/06/2017', 'cancelado', 'nada', 1, 1, NULL, NULL, '2017-06-17 10:24:18', '2017-06-17 10:24:18'),
-(4, '20/06/2017', 'pendiente', 'nada', 1, 1, NULL, NULL, '2017-06-17 10:26:01', '2017-06-17 10:26:01'),
-(5, '25/12/2017', 'reprogramado', 'nada', 1, 1, NULL, NULL, '2017-06-17 10:26:09', '2017-06-17 10:26:09'),
-(6, '12/06/2017', 'atendido', 'nada', 1, 1, 2, NULL, '2017-06-17 10:26:52', '2017-06-17 10:26:52'),
-(7, '12/06/2017', 'atendido', 'nada', 1, 1, 2, NULL, '2017-06-17 10:27:00', '2017-06-17 10:27:00'),
-(8, '12/06/2017', 'ausente', 'nada', 1, 1, NULL, NULL, '2017-06-17 10:27:07', '2017-06-17 10:27:07'),
-(9, '13/06/2017', 'esperando', 'nada', 1, 1, 2, NULL, '2017-06-17 10:37:42', '2017-06-20 22:48:24'),
-(10, '22/06/2017', 'pendiente', 'nada', 1, 1, NULL, NULL, '2017-06-17 10:41:20', '2017-06-17 10:41:20'),
-(11, '22/06/2017', 'pendiente', 'nada', 1, 1, NULL, NULL, '2017-06-17 10:41:25', '2017-06-17 10:41:25'),
-(12, '13/06/2017', 'esperando', 'nada', 1, 1, 2, 1, '2017-06-17 10:43:32', '2017-06-21 22:54:33'),
-(13, '13/06/2017', 'esperando', 'nada', 1, 1, 3, NULL, '2017-06-17 10:43:35', '2017-06-20 22:48:34'),
-(14, '13/06/2017', 'esperando', 'nada', 1, 1, 2, NULL, '2017-06-17 10:43:37', '2017-06-20 22:48:44'),
-(15, '13/06/2017', 'esperando', 'nada', 1, 1, 3, 2, '2017-06-17 10:43:38', '2017-06-21 22:53:47'),
-(20, '17/06/2017', 'atendido', 'nada', 1, 1, 2, NULL, '2017-06-17 10:47:33', '2017-06-17 10:47:33'),
-(21, '20/06/2017', 'atendido', 'nada', 1, 1, 2, NULL, '2017-06-17 10:47:35', '2017-06-17 10:47:35'),
-(22, '20/06/2017', 'atendido', 'nada', 1, 1, 2, NULL, '2017-06-17 10:47:37', '2017-06-17 10:47:37'),
-(23, '17/06/2017', 'atendido', 'nada', 1, 1, 2, NULL, '2017-06-17 10:47:39', '2017-06-17 10:47:39'),
-(24, '17/06/2017', 'atendido', 'nada', 1, 1, 2, NULL, '2017-06-17 10:47:41', '2017-06-17 10:47:41'),
-(25, '07/06/2017', 'reprogramado', '. El turno fue reprogramado para la fecha: 21/09/2017', 1, 1, NULL, NULL, '2017-06-20 17:25:29', '2017-06-20 17:26:16'),
-(26, '21/09/2017', 'cancelado', NULL, 1, 1, NULL, NULL, '2017-06-20 17:26:16', '2017-06-20 17:26:24'),
-(27, '20/06/2017', 'pendiente', 'NINGUNO', 1, 1, NULL, NULL, '2017-06-20 18:39:19', '2017-06-20 18:39:19'),
-(28, '23/06/2017', 'pendiente', 'se parece a brad pitt', 1, 1, NULL, NULL, '2017-06-20 22:20:37', '2017-06-20 22:20:37'),
-(29, '14/06/2017', 'pendiente', NULL, 1, 1, NULL, NULL, '2017-06-21 22:50:59', '2017-06-21 22:50:59');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -424,20 +303,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `imagen`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Hacho Kuszniruk', 'hacho_k@outlook.com', '$2y$10$Hjtb1zy/en6c017.MKW/g.isHckkTIhatU8RsABmYMFQd7F1bVABW', 'usuario_1497175470.', 'IQiUWlNjjvW8eJG9Sv9jftwrWfcTFUDr4bPwDsmyVLDmSrW2pIhtsamRUj8m', '2017-05-20 18:10:21', '2017-06-11 10:04:30'),
-(2, 'Brad Pitt', 'brad@gmail.com', '$2y$10$uGIlOHvcvfPstL0H5A6jiuHrh/wwOpsRBkeZjLCg/6zoN94K9oCya', 'usuario_1497095222.', NULL, '2017-05-21 20:08:20', '2017-06-10 11:47:02'),
-(9, 'Vigo Mortensen', 'vigo@gmail.com', '$2y$10$LPdVxHzS72iqZRrIJylVFOHFiix.rH.DPGKJphuvmjmQI7Gglv0NK', 'usuario_1496011255.', NULL, '2017-05-28 22:40:55', '2017-05-28 22:40:55'),
-(26, 'George Cloney', 'george.g@gmail.com', '$2y$10$4OWFMUuHT3XsF3yD4NeEnOEOTJ8H9s0L0yf92HKkaCyuhGirXbVJG', 'usuario_1497118761.', NULL, '2017-06-10 18:19:06', '2017-06-10 18:19:21');
+(1, 'Hacho Kuszniruk', 'hacho_k@outlook.com', '$2y$10$Hjtb1zy/en6c017.MKW/g.isHckkTIhatU8RsABmYMFQd7F1bVABW', 'sin imagen', 'IQiUWlNjjvW8eJG9Sv9jftwrWfcTFUDr4bPwDsmyVLDmSrW2pIhtsamRUj8m', '2017-05-20 18:10:21', '2017-05-20 18:10:21'),
+(2, 'sdfsdf', 'FLOR_KOKII@HOTMAIL.COM', '$2y$10$uGIlOHvcvfPstL0H5A6jiuHrh/wwOpsRBkeZjLCg/6zoN94K9oCya', 'usuario_1495397299.jpg', NULL, '2017-05-21 20:08:20', '2017-05-30 22:02:53'),
+(9, 'Vigo Mortensen', 'vigo@gmail.com', '$2y$10$LPdVxHzS72iqZRrIJylVFOHFiix.rH.DPGKJphuvmjmQI7Gglv0NK', 'usuario_1496011255.', NULL, '2017-05-28 22:40:55', '2017-05-28 22:40:55');
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `agendas`
---
-ALTER TABLE `agendas`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `configuraciones`
@@ -447,23 +319,11 @@ ALTER TABLE `configuraciones`
   ADD KEY `configuraciones_localidad_id_foreign` (`localidad_id`);
 
 --
--- Indices de la tabla `consultorios`
---
-ALTER TABLE `consultorios`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `enfermeros`
 --
 ALTER TABLE `enfermeros`
   ADD PRIMARY KEY (`id`),
   ADD KEY `enfermeros_persona_id_foreign` (`persona_id`);
-
---
--- Indices de la tabla `feriados`
---
-ALTER TABLE `feriados`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `localidades`
@@ -528,16 +388,6 @@ ALTER TABLE `provincias`
   ADD KEY `provincias_pais_id_foreign` (`pais_id`);
 
 --
--- Indices de la tabla `turnos`
---
-ALTER TABLE `turnos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `turnos_agenda_id_foreign` (`agenda_id`),
-  ADD KEY `turnos_paciente_id_foreign` (`paciente_id`),
-  ADD KEY `turnos_enfermero_id_foreign` (`enfermero_id`),
-  ADD KEY `turnos_consultorio_id_foreign` (`consultorio_id`);
-
---
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -549,30 +399,15 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT de la tabla `agendas`
---
-ALTER TABLE `agendas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT de la tabla `configuraciones`
 --
 ALTER TABLE `configuraciones`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de la tabla `consultorios`
---
-ALTER TABLE `consultorios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT de la tabla `enfermeros`
 --
 ALTER TABLE `enfermeros`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT de la tabla `feriados`
---
-ALTER TABLE `feriados`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `localidades`
 --
@@ -587,7 +422,7 @@ ALTER TABLE `medicos`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `obras_sociales`
 --
@@ -607,22 +442,17 @@ ALTER TABLE `paises`
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `provincias`
 --
 ALTER TABLE `provincias`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de la tabla `turnos`
---
-ALTER TABLE `turnos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
---
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- Restricciones para tablas volcadas
 --
@@ -665,15 +495,6 @@ ALTER TABLE `personas`
 --
 ALTER TABLE `provincias`
   ADD CONSTRAINT `provincias_pais_id_foreign` FOREIGN KEY (`pais_id`) REFERENCES `paises` (`id`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `turnos`
---
-ALTER TABLE `turnos`
-  ADD CONSTRAINT `turnos_agenda_id_foreign` FOREIGN KEY (`agenda_id`) REFERENCES `agendas` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `turnos_consultorio_id_foreign` FOREIGN KEY (`consultorio_id`) REFERENCES `consultorios` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `turnos_enfermero_id_foreign` FOREIGN KEY (`enfermero_id`) REFERENCES `enfermeros` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `turnos_paciente_id_foreign` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
