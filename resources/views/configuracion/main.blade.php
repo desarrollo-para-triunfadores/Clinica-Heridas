@@ -220,6 +220,7 @@ Zonas registradas
 
 @section('script')
 
+<script src="{{ asset('js/configuracion.js') }}"></script>
 
 
 <script>
