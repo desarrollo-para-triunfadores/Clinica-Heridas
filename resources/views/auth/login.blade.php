@@ -34,7 +34,7 @@
                 @endif
                 <b>{{$configuracion->apodo}}</b> 
                 <br>                             
-                {{$configuracion->nombre}} | <small>{{$configuracion->descripcion}}<small>   
+                {{$configuracion->nombre}} <br> <small>{{$configuracion->descripcion}}<small>
                         </div>     
                         <!-- /.login-logo -->
                         <div class="login-box-body">                
