@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAgendasTable extends Migration {
+class CreateHorariosTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,19 +12,19 @@ class CreateAgendasTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('agendas', function (Blueprint $table) {
+        Schema::create('horarios', function (Blueprint $table) {
             $table->increments('id');
             $table->string('hora_inicio');
             $table->string('hora_fin');
-            $table->string('turno');
+            $table->string('turno')->nullable();
             $table->integer('cupo_turnos');
-            $table->boolean('lunes');
-            $table->boolean('martes');
-            $table->boolean('miercoles');
-            $table->boolean('jueves');
-            $table->boolean('viernes');
-            $table->boolean('sabado');
-            $table->boolean('domingo');
+            $table->boolean('lunes')->nullable();
+            $table->boolean('martes')->nullable();
+            $table->boolean('miercoles')->nullable();
+            $table->boolean('jueves')->nullable();
+            $table->boolean('viernes')->nullable();
+            $table->boolean('sabado')->nullable();
+            $table->boolean('domingo')->nullable();
 
             $table->timestamps();
         });

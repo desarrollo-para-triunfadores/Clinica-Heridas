@@ -35,11 +35,7 @@ class HistoriaClinicaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        $factores = Factor::all();
-        $medicamentos = Medicamento::all();
-        return view('pacientes.create')
-                        ->with('medicamentos', $medicamentos)
-                        ->with('factores', $factores);
+        
     }
 
     /**
@@ -49,8 +45,8 @@ class HistoriaClinicaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-      
-               
+
+
         $antecedente = new Antecedentes($request->all());
         $antecedente->observaciones = $request->observaciones_antecedentes;
         $antecedente->save();
@@ -60,18 +56,17 @@ class HistoriaClinicaController extends Controller {
 
             $factor_paciente = new FactorPaciente();
             $factor_paciente->paciente_id = $request->paciente_id;
-            $factor_paciente->factor_id = $request["factor" . $i];           
+            $factor_paciente->factor_id = $request["factor" . $i];
             $factor_paciente->save();
-                        
         }
-        
+
 
         $cantidad_medicamentos = (int) $request->cantidad_caracteristicas;
         for ($i = 1; $i <= $cantidad_medicamentos; $i++) {
 
             $medicacion = new MedicacionPaciente();
             $medicacion->paciente_id = $request->paciente_id;
-            $medicacion->medicamento_id = $request["medicamento" . $i];  
+            $medicacion->medicamento_id = $request["medicamento" . $i];
             $medicacion->save();
         }
 
@@ -101,7 +96,12 @@ class HistoriaClinicaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+        $factores = Factor::all();
+        $medicamentos = Medicamento::all();
+        return view('pacientes.create')
+                        ->with('medicamentos', $medicamentos)
+                        ->with('factores', $factores)
+                        ->with("paciente_id", $id);
     }
 
     /**

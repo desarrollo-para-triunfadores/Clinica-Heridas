@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Turno extends Model {
 
     protected $table = "turnos";
-    protected $fillable = ['fecha', 'estado', 'comentario', 'agenda_id', 'paciente_id', 'enfermero_id', 'consultorio_id'];
+    protected $fillable = ['fecha', 'estado', 'comentario', 'horario_id', 'paciente_id', 'enfermero_id', 'consultorio_id'];
 
-    public function agenda() {
-        return $this->belongsTo('App\Agenda');
+    public function horario() {
+        return $this->belongsTo('App\Horario_atencion');
     }
 
     public function scopeSearchFecha($query, $fecha) {
@@ -33,8 +33,8 @@ class Turno extends Model {
         return $query->where('estado', 'atendido');
     }
 
-    public function scopeSearchAgenda($query, $id) {
-        return $query->where('agenda_id', $id);
+    public function scopeSearchHorario($query, $id) {
+        return $query->where('horario_id', $id);
     }
 
     public function scopeSearchDistintoEstado($query, $estado) {

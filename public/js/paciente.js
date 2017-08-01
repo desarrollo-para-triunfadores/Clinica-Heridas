@@ -109,9 +109,7 @@ $('#example tbody').on('mouseenter', 'td', function () {
 
 //Datatable
 var table_factores = $('#tabla_factores').DataTable({
-    language: {
-        url: "/js/spanish.json"
-    }
+    "language": tabla_traducida // esta variable esta instanciada donde están declarados todos los js.    
 });
 
 $('a.toggle-vis').on('click', function (e) {
@@ -137,9 +135,7 @@ $('#tabla_factores tbody').on('mouseenter', 'td', function () {
 
 //Datatable tabla_medicamentos
 var table_medicamentos = $('#tabla_medicamentos').DataTable({
-    language: {
-        url: "/js/spanish.json"
-    }
+    "language": tabla_traducida // esta variable esta instanciada donde están declarados todos los js.    
 });
 
 $('a.toggle-vis').on('click', function (e) {
@@ -165,9 +161,7 @@ $('#tabla_medicamentos tbody').on('mouseenter', 'td', function () {
 
 //Datatable tabla_valoraciones
 var tabla_valoraciones = $('#tabla_valoraciones').DataTable({
-    language: {
-        url: "/js/spanish.json"
-    }
+    "language": tabla_traducida // esta variable esta instanciada donde están declarados todos los js.    
 });
 
 $('a.toggle-vis').on('click', function (e) {
@@ -183,6 +177,7 @@ $('#tabla_valoraciones tbody').on('mouseenter', 'td', function () {
     $(tabla_valoraciones.cells().nodes()).removeClass('highlight');
     $(tabla_valoraciones.column(colIdx).nodes()).addClass('highlight');
 });
+
 
 
 

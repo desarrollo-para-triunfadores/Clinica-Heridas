@@ -32,7 +32,7 @@ Paises registrados
                             <p>Para buscar turnos disponibles presione el botón <b>buscar turnos</b> y especifique una fecha de interés. El sistema buscará turnos diponibles para la fecha seleccionada.</p>
                         </div>
                         @else      
-                        @if (count($agendas)<1)
+                        @if (count($horarios)<1)
                         <div class="callout callout-warning">
                             <h4><i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i> Información</h4>
                             <p>La búsqueda para la fecha seleccionada <b>no produjo resultados</b>. Es posible que los cupos disponibles ya hayan sido agotados. Si se tratara de una emergencia puede solicitar un <b>turno especial</b> a través del apartado de la turnera sino intente con otra fecha nuevamente.</p>
@@ -49,14 +49,14 @@ Paises registrados
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($agendas as $agenda)
+                                @foreach($horarios as $horario)
                                 <tr>                                                                                                        
-                                    <td class="text-center text-bold">{{$agenda["agenda"]["turno"]}}</td>
-                                    <td class="text-center text-bold">{{$agenda["agenda"]["hora_inicio"]}}</td>
-                                    <td class="text-center text-bold">{{$agenda["agenda"]["hora_fin"]}}</td>
-                                    <td class="text-center text-bold">{{$agenda["agenda"]["cupo_turnos"]}}/{{$agenda["turnos_ocupados"]}}</td>
+                                    <td class="text-center text-bold">{{$horario["agenda"]["turno"]}}</td>
+                                    <td class="text-center text-bold">{{$horario["agenda"]["hora_inicio"]}}</td>
+                                    <td class="text-center text-bold">{{$horario["agenda"]["hora_fin"]}}</td>
+                                    <td class="text-center text-bold">{{$horario["agenda"]["cupo_turnos"]}}/{{$horario["turnos_ocupados"]}}</td>
                                     <td class="text-center">
-                                        <a onclick="completar_campos({{$agenda["agenda"]["id"]}})" title="Tomar turno" class="btn btn-social-icon btn-warning btn-sm"><i class="fa fa-pencil"></i></a>                                        
+                                        <a onclick="completar_campos({{$horario["agenda"]["id"]}})" title="Tomar turno" class="btn btn-social-icon btn-warning btn-sm"><i class="fa fa-pencil"></i></a>                                        
                                     </td>
                                 </tr> 
                                 @endforeach

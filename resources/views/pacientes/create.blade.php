@@ -9,7 +9,7 @@ Pacientes registradas
     <section class="content-header">
         <h1>
             Pacientes
-            <small>registros almacenados</small>
+            <small>registrar historia clínica</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-suitcase"></i> Generales</a></li>
@@ -20,10 +20,12 @@ Pacientes registradas
     <section class="content animated fadeIn">
         <div class="row">
             <div class="col-md-12">
+                <a href="{{ route('pacientes.show', $paciente_id) }}" title="volver a la pantalla anterior" class="btn btn-default btn-sm"><i class="fa fa-arrow-left"></i> volver</a>               
+                <br>                
                 <br>
                 <form id="commentForm"  action="/historias" method="POST"  class="form-horizontal">
                     <input id="token-create" type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input name="paciente_id" id="paciente_id" value="1" type="text" class="hide"> 
+                    <input name="paciente_id" id="paciente_id" value="{{$paciente_id}}" type="text" class="hide"> 
                     <div id="rootwizard">
                         <div class="box box-primary">
                             <div class="box-body">

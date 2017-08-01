@@ -198,17 +198,39 @@ Pacientes registradas
                         <br>
                         <ul class="list-group list-group-unbordered">
                             <li class="list-group-item">
-                                @if ($paciente->persona->telefono_contacto)                                                                                                                                    
+
+                                @if (($paciente->persona->telefono) && ($paciente->persona->telefono_contacto))
                                 <b>Teléfonos</b> <a class="pull-right">{{$paciente->persona->telefono}} - {{$paciente->persona->telefono_contacto}}</a>
-                                @else
+                                @elseif ((!$paciente->persona->telefono) && ($paciente->persona->telefono_contacto))
+                                <b>Teléfono contacto</b> <a class="pull-right">{{$paciente->persona->telefono_contacto}}</a>                             
+                                @elseif (($paciente->persona->telefono) && (!$paciente->persona->telefono_contacto)) 
                                 <b>Teléfono</b> <a class="pull-right">{{$paciente->persona->telefono}}</a>
+                                @else
+                                <b>Teléfono</b> <a class="pull-right">No fue registrado</a>
                                 @endif
+
+
+
                             </li>
                             <li class="list-group-item">
-                                <b>Email</b> <a class="pull-right">{{$paciente->persona->email}}</a>
+                                <b>Email</b>
+                                <a class="pull-right">
+                                    @if ($paciente->persona->email)                                                                                                                                    
+                                    {{$paciente->persona->email}}
+                                    @else
+                                    No fue registrado
+                                    @endif
+                                </a>
                             </li>
                             <li class="list-group-item">
-                                <b>Dirección</b> <a class="pull-right">{{$paciente->persona->direccion}}</a>
+                                <b>Dirección</b>
+                                <a class="pull-right">
+                                    @if ($paciente->persona->direccion)                                                                                                                                    
+                                    {{$paciente->persona->direccion}}
+                                    @else
+                                    No fue registrada
+                                    @endif
+                                </a>
                             </li>
                         </ul>
                         <div style="text-align: center;">

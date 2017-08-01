@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
 
-    Route::get('/turnos_dia', 'TurnosController@index2')->name('turnos_dia');
+    Route::get('/agenda', 'TurnosController@index2')->name('agenda');
 
     Route::get('/buscar_turnos', 'TurnosController@buscar_turnos')->name('buscar_turnos');
 
@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('medicamentos', 'MedicamentosController');
     Route::resource('consultorios', 'ConsultoriosController');
     Route::resource('feriados', 'FeriadosController');
-    Route::resource('agendas', 'AgendasController');
+    Route::resource('horarios', 'HorariosController');
     Route::resource('turnos', 'TurnosController');
     Route::put('usuarios/actpass/{usuarios}', 'UserController@actPass');
     Route::put('usuarios/actconf/{usuarios}', 'UserController@actConf');

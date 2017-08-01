@@ -54,6 +54,8 @@ $.widget.bridge('uibutton', $.ui.button);
 <!-- bootstrap color picker -->
 <script src="{{ asset('plantilla/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.min.js') }}"></script>
 
+<!-- bootstrap time picker -->
+<script src="{{ asset('plantilla/AdminLTE/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
 
 
 
@@ -80,6 +82,9 @@ $.widget.bridge('uibutton', $.ui.button);
 <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
+
+<!-- iCheck 1.0.1 -->
+<script src="{{ asset('plantilla/AdminLTE/plugins/iCheck/icheck.min.js') }}"></script>
 
 
 

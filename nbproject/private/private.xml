@@ -3,26 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/valoraciones/formulario/create_seguimiento.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Paciente.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/TratamientoSeguimiento.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Http/Controllers/HistoriaClinicaController.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Http/Controllers/SeguimientosController.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/public/js/medicamento.js</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/pacientes/main.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/public/js/historia_nueva.js</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/valoraciones/formulario/modal_tratamientos.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/pacientes/show.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Seguimiento.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/valoraciones/main.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/public/js/paciente.js</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/paises/main.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Valoracion.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/pacientes/formulario/create.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/partes/scripts.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/resources/views/valoraciones/formulario/create.blade.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/app/Http/Controllers/ValoracionesController.php</file>
-            <file>file:/home/hacho/NetBeansProjects/Clinica/public/js/valoracion.js</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica-Heridas/resources/views/pacientes/contenido_tab/antecedentes.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica-Heridas/resources/views/pacientes/contenido_tab/factores.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica-Heridas/resources/views/pacientes/contenido_tab/medicamentos.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica-Heridas/resources/views/pacientes/contenido_tab/valoraciones.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica-Heridas/resources/views/pacientes/contenido_tab/estudios_complementarios.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica-Heridas/resources/views/pacientes/contenido_tab/datos_identificatorios.blade.php</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica-Heridas/public/js/paciente.js</file>
+            <file>file:/home/hacho/NetBeansProjects/Clinica-Heridas/resources/views/pacientes/show.blade.php</file>
         </group>
     </open-files>
 </project-private>

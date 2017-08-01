@@ -65,7 +65,7 @@
                         </a>
                         <ul id="side-ele-atencion-ul" class="treeview-menu">
                             <li id="side-ele-feriados"><a href="{{ route('feriados.index') }}"><i class="fa fa-circle-o"></i> Días no laborales</a></li>
-                            <li id="side-ele-horarios-atencion"><a href="{{ route('agendas.index') }}"><i class="fa fa-circle-o"></i> Horarios de atención</a></li>                            
+                            <li id="side-ele-horarios-atencion"><a href="{{ route('horarios.index') }}"><i class="fa fa-circle-o"></i> Horarios de atención</a></li>                            
                         </ul>
                     </li>
                 </ul>
@@ -81,7 +81,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li id="side-ele-obtener-turno"><a href="{{ route('turnos.index') }}"><i class="fa fa-circle-o"></i> Obtener turno</a></li>                   
-                    <li id="side-ele-turnos-dia"><a href="{{ route('turnos_dia') }}"><i class="fa fa-circle-o"></i> Agenda</a></li> 
+                    <li id="side-ele-agenda"><a href="{{ route('agenda') }}"><i class="fa fa-circle-o"></i> Agenda</a></li> 
                     <li id="side-ele-turnera"><a href="{{ route('turnera') }}"><i class="fa fa-circle-o"></i> Turnera</a></li> 
                 </ul>
             </li>

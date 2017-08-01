@@ -1,7 +1,7 @@
 //Info SIDEBAR: los atributos para señalizar el objeto en el sidebar se encuentran en los mains que hacen uso de este JS
 
 function completar_campos(id) {
-    $('#agenda_id').val(id);
+    $('#horario_id').val(id);
     $('#boton-crear-turno').click();
 }
 
@@ -15,6 +15,12 @@ function completar_campos_cancelar(id) {
     $('#turno_id_cancelar').val(id);
     $('.form-actualizar-estado').attr('action', '/turnos/' + id);
     $('#boton-modal-cancelar').click();
+}
+
+function completar_campos_devolver(id) {
+    $('#turno_id_devolver').val(id);
+    $('.form-actualizar-estado').attr('action', '/turnos/' + id);
+    $('#boton-modal-devolver').click();
 }
 
 function completar_campos_esperando(id) {
@@ -40,7 +46,7 @@ function abrir_modal_borrar(id) {
 
 //Date picker
 $('.datepicker').datepicker({
-    autoclose: true,    
+    autoclose: true,
     startDate: "-0d",
     todayHighlight: true,
     orientation: "bottom auto",

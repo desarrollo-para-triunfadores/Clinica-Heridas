@@ -30,7 +30,7 @@
                         <input name="comentario" type="text" maxlength="50" class="form-control" placeholder="campo opcional">
                     </div>  
                     <input name="fecha" id="fecha" value="{{$fecha}}" type="text" class="hide"> 
-                    <input name="agenda_id" id="agenda_id" type="text" class="hide">                                                                
+                    <input name="horario_id" id="horario_id" type="text" class="hide">                                                                
                     <button id="boton_submit_crear-turno" type="submit" class="btn hide btn-primary"></button>
                 </form>
                 <br><br>

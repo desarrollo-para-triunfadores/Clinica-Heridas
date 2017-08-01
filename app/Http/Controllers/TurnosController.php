@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Agenda;
+use App\Horario_atencion;
 use App\Turno;
 use App\Paciente;
 use App\Consultorio;
@@ -49,18 +49,23 @@ class TurnosController extends Controller {
         $consultorios = Consultorio::all();
         $fecha_hoy = Carbon::now()->format('d/m/Y');
         $turnos_dia_pendientes = Turno::SearchFecha($fecha_hoy)->SearchPendientes()->orderby('updated_at', 'asc')->get();
-        $turnos_en_atencion = Turno::SearchEsperando()->where('consultorio_id', '<>', null)->orderby('updated_at', 'asc')->get();
+        $turnos_en_atencion = Turno::SearchEsperando()->where('consultorio_id', '<>', null)->where('enfermero_id', '<>', null)->orderby('updated_at', 'asc')->get();
+
+        $turnos_en_llamado = Turno::SearchEsperando()->where('consultorio_id', '<>', null)->where('enfermero_id', null)->orderby('updated_at', 'asc')->get();
+
+
         $turnos_esperando = Turno::SearchEsperando()->where('consultorio_id', null)->orderby('updated_at', 'asc')->get();
         $turnos_pendientes = Turno::SearchFechadistinta($fecha_hoy)->SearchPendientes()->orderby('updated_at', 'asc')->get();
         $turnos_atendidos_hoy = Turno::SearchFecha($fecha_hoy)->SearchAtendidos()->orderby('updated_at', 'asc')->get();
         $turnos_atendidos = Turno::SearchDistintoEstado('pendiente')->SearchDistintoEstado('esperando')->orderby('updated_at', 'asc')->get();
 
-        return view('turnos_del_dia.main')
+        return view('agenda.main')
                         ->with('enfermeros', $enfermeros)
                         ->with('turno_anterior', $request->turno_anterior)
                         ->with('consultorios', $consultorios)
                         ->with('turnos_dia_pendientes', $turnos_dia_pendientes)
                         ->with('turnos_en_atencion', $turnos_en_atencion)
+                        ->with('turnos_en_llamado', $turnos_en_llamado)
                         ->with('turnos_esperando', $turnos_esperando)
                         ->with('turnos_pendientes', $turnos_pendientes)
                         ->with('turnos_atendidos_hoy', $turnos_atendidos_hoy)
@@ -90,7 +95,7 @@ class TurnosController extends Controller {
         $pacientes = "";
         $dt = Carbon::parse($request->fecha);
         $dia_semana = "";
-        $agendas_disponibles = [];
+        $horarios_disponibles = [];
         switch ($dt->dayOfWeek) {
             case 0:
                 $dia_semana = "domingo";
@@ -117,26 +122,22 @@ class TurnosController extends Controller {
                 $dia_semana = "domingo";
                 break;
         }
-        $agendas_registradas = Agenda::SearchDia($dia_semana)->get();
-        foreach ($agendas_registradas as $registro_agenda) {
-            $turnos = Turno::SearchFecha($dt->format('d/m/Y'))->SearchAgenda($registro_agenda->id)->SearchPendientes()->get();
+        $horarios_registrados = Horario_atencion::SearchDia($dia_semana)->get();
+        foreach ($horarios_registrados as $registro_horario) {
+            $turnos = Turno::SearchFecha($dt->format('d/m/Y'))->SearchHorario($registro_horario->id)->SearchPendientes()->get();
 
-//               // dd($registro_agenda->cupo_turnos);
-//                dd(count($turnos));
-//                dd($registro_agenda->cupo_turnos > count($turnos));
-
-            if ($registro_agenda->cupo_turnos > count($turnos)) {
+            if ($registro_horario->cupo_turnos > count($turnos)) {
                 $agenda = array(
-                    'agenda' => $registro_agenda,
+                    'agenda' => $registro_horario,
                     'turnos_ocupados' => count($turnos)
                 );
-                array_push($agendas_disponibles, $agenda);
+                array_push($horarios_disponibles, $agenda);
             } elseif ($request->turno_especial) {
                 $agenda = array(
-                    'agenda' => $registro_agenda,
+                    'agenda' => $registro_horario,
                     'turnos_ocupados' => count($turnos)
                 );
-                array_push($agendas_disponibles, $agenda);
+                array_push($horarios_disponibles, $agenda);
             }
         }
 
@@ -149,7 +150,7 @@ class TurnosController extends Controller {
         return view('turnos.main')
                         ->with('comentario_reprogramado', $request->comentario)
                         ->with('turno_id', $request->turno_id)
-                        ->with('agendas', $agendas_disponibles)
+                        ->with('horarios', $horarios_disponibles)
                         ->with('fecha', $dt->format('d/m/Y'))
                         ->with('paciente', $paciente)
                         ->with('pacientes', $pacientes)
@@ -173,7 +174,7 @@ class TurnosController extends Controller {
             $turno->save();
         }
         Session::flash('message', 'Se ha registrado a un nuevo turno.');
-        return redirect()->route('turnos_dia');
+        return redirect()->route('agenda');
     }
 
     /**
@@ -211,31 +212,36 @@ class TurnosController extends Controller {
             $turno->enfermero_id = $request->enfermero_id;
             $turno->save();
             Session::flash('message', '¡Atendiendo al paciente!');
-            return redirect()->route('turnos_dia');
+            return redirect()->route('pacientes.show', $turno->paciente->id);
         }
 
 
         // Si se trata de llamar a un turno se verifican si hay turnos que se llamaron y no fueron atendidos, estos se mandan a cola otra vez y se marca el consultorio al turno indicado para que la turnera lo detecte.
         if ($request->consultorio_id) {
-            $turnos_en_atencion = Turno::SearchEsperando()->where('consultorio_id', $request->consultorio_id)->get();
-            foreach ($turnos_en_atencion as $turno_en_atencion) {
-                $turno_en_atencion->consultorio_id = null;
-                $turno_en_atencion->save();
-            }
             $turno->consultorio_id = $request->consultorio_id;
             $turno->save();
             Session::flash('message', '¡Llamando al paciente!');
-            return redirect()->route('turnos_dia');
+            return redirect()->route('agenda');
         }
 
-        $turno->estado = $request->estado;
+
+        if ($request->estado === "devolver") {
+            $turno->consultorio_id = null;
+            $turno->save();
+            Session::flash('message', '¡Turno devuelto a cola de espera!');
+            return redirect()->route('agenda');
+        } else {
+            $turno->estado = $request->estado;
+        }
+
+
         if ($request->comentario) {
             $turno->comentario = $request->comentario;
         }
 
         $turno->save();
         Session::flash('message', 'El estado del turno fue actualizado.');
-        return redirect()->route('turnos_dia');
+        return redirect()->route('agenda');
     }
 
     /**
