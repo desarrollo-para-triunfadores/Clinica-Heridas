@@ -18,7 +18,7 @@
     </thead>
     <tbody>
         @foreach($turnos_dia_pendientes as $turno_dia_pendiente)
-        <tr>                                                                                                        
+        <tr>
             <td class="text-center text-bold">{{$turno_dia_pendiente->paciente->persona->apellido}} {{$turno_dia_pendiente->paciente->persona->nombre}}</td>
             <td class="text-center text-bold">{{$turno_dia_pendiente->paciente->persona->dni}}</td>
             <td class="text-center text-bold">{{$turno_dia_pendiente->horario->hora_inicio}} - {{$turno_dia_pendiente->horario->hora_fin}}</td>

@@ -54,7 +54,7 @@ class EnfermerosController extends Controller {
         $nombreImagen = 'sin imagen';
         if ($request->file('imagen')) {
             $file = $request->file('imagen');
-            $nombreImagen = 'persona_' . time() . '.' . $file->getClientOriginalExtension();
+            $nombreImagen = 'persona_' . time() . '.jpg' /*. $file->getClientOriginalExtension()*/;
             Storage::disk('personas')->put($nombreImagen, \File::get($file));
         }
         /* datos de persona */

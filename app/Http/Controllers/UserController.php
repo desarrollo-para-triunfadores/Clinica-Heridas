@@ -40,7 +40,7 @@ class UserController extends Controller {
         $nombreImagen = 'sin imagen';
         if ($request->file('imagen')) {
             $file = $request->file('imagen');
-            $nombreImagen = 'usuario_' . time() . '.' . $file->getClientOriginalExtension();
+            $nombreImagen = 'usuario_' . time() . '.jpg';
             Storage::disk('usuarios')->put($nombreImagen, \File::get($file));
         }
 

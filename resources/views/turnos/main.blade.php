@@ -1,7 +1,7 @@
 @extends('partes.index')
 
 @section('title')
-Paises registrados
+Obtener Turno
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@ Paises registrados
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-suitcase"></i> Generales</a></li>
             <li>Lugares</li>
-            <li class="active">Paises</li>
+            <li class="active">Turnos</li>
         </ol>
     </section>
     <section class="content animated fadeIn">
@@ -28,8 +28,10 @@ Paises registrados
                     <div class="box-body ">                                                  
                         @if (!$fecha)
                         <div class="callout callout-info">
-                            <h4><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> Información</h4>
-                            <p>Para buscar turnos disponibles presione el botón <b>buscar turnos</b> y especifique una fecha de interés. El sistema buscará turnos diponibles para la fecha seleccionada.</p>
+                            <h2><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> Información</h2>
+                            <h3>
+                                <p>Para buscar turnos disponibles presione el botón <b>buscar turnos</b> y especifique una fecha de interés. El sistema buscará turnos diponibles para la fecha seleccionada.</p>
+                            </h3>
                         </div>
                         @else      
                         @if (count($horarios)<1)

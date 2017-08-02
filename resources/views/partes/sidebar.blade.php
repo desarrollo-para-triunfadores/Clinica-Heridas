@@ -80,9 +80,9 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li id="side-ele-obtener-turno"><a href="{{ route('turnos.index') }}"><i class="fa fa-circle-o"></i> Obtener turno</a></li>                   
-                    <li id="side-ele-agenda"><a href="{{ route('agenda') }}"><i class="fa fa-circle-o"></i> Agenda</a></li> 
-                    <li id="side-ele-turnera"><a href="{{ route('turnera') }}"><i class="fa fa-circle-o"></i> Turnera</a></li> 
+                    <li id="side-ele-obtener-turno"><a href="{{ route('turnos.index') }}"><i class="fa fa-ticket"></i> Obtener turno</a></li>
+                    <li id="side-ele-agenda"><a href="{{ route('agenda') }}"><i class="fa fa-calendar"></i> Agenda</a></li>
+                    <li id="side-ele-turnera"><a href="{{ route('turnera') }}"><i class="fa fa-list-ol"></i> Turnera</a></li>
                 </ul>
             </li>
         </ul>
